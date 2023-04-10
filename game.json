@@ -19,7 +19,7 @@
     "useExternalSourceFiles": false,
     "version": "1.0.0",
     "name": "1941",
-    "description": "",
+    "description": "An arcade remake of the classic top down shooter 1942. Take your trusty Yellow Thunder on an adventure just like in the old times! Or team up with a friend, and top the high-score. Show them who the best pilot is!",
     "author": "Zen Masters",
     "windowWidth": 720,
     "windowHeight": 1280,
@@ -48,10 +48,18 @@
       "placement": "bottom-left",
       "showWatermark": false
     },
-    "authorIds": [],
-    "authorUsernames": [],
-    "categories": [],
-    "playableDevices": [],
+    "authorIds": [
+      "RlSdAd6wvgUULr2uMTUbRCe2Bdu2"
+    ],
+    "authorUsernames": [
+      "Zen_Masters"
+    ],
+    "categories": [
+      "shooter"
+    ],
+    "playableDevices": [
+      "mobile"
+    ],
     "extensionProperties": [],
     "platforms": [
       {
@@ -423,9 +431,9 @@
     },
     {
       "folded": true,
-      "name": "Player1_Health",
+      "name": "Player1_Lives",
       "type": "number",
-      "value": 99
+      "value": 3
     },
     {
       "name": "test_enemyRemoved",
@@ -437,6 +445,12 @@
       "name": "EnemyBasicSpeed",
       "type": "number",
       "value": 30
+    },
+    {
+      "folded": true,
+      "name": "GameOver",
+      "type": "boolean",
+      "value": false
     }
   ],
   "layouts": [
@@ -719,23 +733,8 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 50,
-          "layer": "Player Layer",
-          "name": "PlayerOne",
-          "persistentUuid": "5bac2137-debd-4ad8-b48b-fba2b76a0605",
-          "width": 68,
-          "x": 482,
-          "y": 900,
-          "zOrder": 10,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
           "height": 47,
-          "layer": "",
+          "layer": "GUI Layer",
           "name": "guiText",
           "persistentUuid": "cde94e75-d48d-420d-9d0b-e9975dac572b",
           "width": 210,
@@ -960,11 +959,11 @@
           "angle": 0,
           "customSize": false,
           "height": 0,
-          "layer": "",
-          "name": "player1GUI_health",
+          "layer": "GUI Layer",
+          "name": "player1_health_text",
           "persistentUuid": "ec338d00-d386-43fc-8502-51f5e8bdcff0",
           "width": 0,
-          "x": 522,
+          "x": 280,
           "y": 1200,
           "zOrder": 101,
           "numberProperties": [],
@@ -1105,6 +1104,21 @@
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "GUI Layer",
+          "name": "player1_lives_text",
+          "persistentUuid": "dae5189f-2605-4a2e-a2d6-917ba3755bf1",
+          "width": 0,
+          "x": 500,
+          "y": 1200,
+          "zOrder": 111,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
         }
       ],
       "objects": [
@@ -1134,7 +1148,29 @@
           "assetStoreId": "",
           "bold": false,
           "italic": false,
-          "name": "player1GUI_health",
+          "name": "player1_lives_text",
+          "smoothed": true,
+          "tags": "",
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Player Lives: ",
+          "font": "e96b43b0ca3fd7775d75a702f44cd1b0dfd325e1db317f7cba84efdf572571fe_Roboto-Regular.ttf",
+          "textAlignment": "left",
+          "characterSize": 20,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "player1_health_text",
           "smoothed": true,
           "tags": "",
           "type": "TextObject::Text",
@@ -1294,11 +1330,11 @@
               "MarginRight": 0
             },
             {
+              "name": "TopDownMovement",
+              "type": "TopDownMovementBehavior::TopDownMovementBehavior",
               "acceleration": 400,
               "deceleration": 500,
               "maxSpeed": 150,
-              "name": "TopDownMovement",
-              "type": "TopDownMovementBehavior::TopDownMovementBehavior",
               "angleOffset": 90,
               "ignoreDefaultControls": false,
               "movementAngleOffset": 0,
@@ -2443,10 +2479,42 @@
                 },
                 {
                   "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "PlayerOne",
+                    "600",
+                    "950",
+                    "\"Player Layer\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "PlayerOne",
+                    "=",
+                    "10"
+                  ]
+                },
+                {
+                  "type": {
                     "value": "TextObject::String"
                   },
                   "parameters": [
-                    "player1GUI_health",
+                    "player1_lives_text",
+                    "=",
+                    "\"Player Lives: \" + ToString(GlobalVariable(Player1_Lives))"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextObject::String"
+                  },
+                  "parameters": [
+                    "player1_health_text",
                     "=",
                     "\"Player Health: \" + ToString(PlayerOne.Variable(PlayerHealth))"
                   ]
@@ -2456,9 +2524,9 @@
             {
               "type": "BuiltinCommonInstructions::Comment",
               "color": {
-                "b": 109,
-                "g": 230,
-                "r": 255,
+                "b": 35,
+                "g": 166,
+                "r": 245,
                 "textB": 0,
                 "textG": 0,
                 "textR": 0
@@ -2785,6 +2853,111 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "name": "Player Respawning",
+          "source": "",
+          "type": "BuiltinCommonInstructions::Group",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "GlobalVariableAsBoolean"
+                  },
+                  "parameters": [
+                    "Player1_GameOver",
+                    "False"
+                  ]
+                }
+              ],
+              "actions": [],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "CompareTimer"
+                      },
+                      "parameters": [
+                        "PlayerOne",
+                        "\"Player1DestroyedTimer\"",
+                        ">=",
+                        "2"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BuiltinCommonInstructions::Once"
+                      },
+                      "parameters": []
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Create"
+                      },
+                      "parameters": [
+                        "",
+                        "PlayerOne",
+                        "600",
+                        "950",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "PlayerOne",
+                        "PlayerHealth",
+                        "=",
+                        "3"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "TextObject::String"
+                      },
+                      "parameters": [
+                        "player1_lives_text",
+                        "=",
+                        "\"Player Lives: \" + ToString(GlobalVariable(Player1_Lives))"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "TextObject::String"
+                      },
+                      "parameters": [
+                        "player1_health_text",
+                        "=",
+                        "\"Player Health: \" + ToString(PlayerOne.Variable(PlayerHealth))"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "RemoveTimer"
+                      },
+                      "parameters": [
+                        "",
+                        "\"Player1DestroyedTimer\""
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "colorB": 228,
+          "colorG": 176,
+          "colorR": 74,
+          "creationTime": 0,
           "name": "Collision Logic",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -3099,7 +3272,7 @@
                         "value": "TextObject::String"
                       },
                       "parameters": [
-                        "player1GUI_health",
+                        "player1_health_text",
                         "=",
                         "\"Player Health: \" + ToString(PlayerOne.Variable(PlayerHealth))"
                       ]
@@ -3119,56 +3292,126 @@
                             "<=",
                             "0"
                           ]
+                        },
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Once"
+                          },
+                          "parameters": []
                         }
                       ],
                       "actions": [
                         {
                           "type": {
-                            "value": "ModVarObjet"
+                            "value": "Delete"
                           },
                           "parameters": [
                             "PlayerOne",
-                            "PlayerLives",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ModVarGlobal"
+                          },
+                          "parameters": [
+                            "Player1_Lives",
                             "-",
                             "1"
                           ]
                         },
                         {
                           "type": {
-                            "value": "ModVarObjet"
+                            "value": "TextObject::String"
                           },
                           "parameters": [
-                            "PlayerOne",
-                            "PlayerHealth",
+                            "player1_health_text",
                             "=",
-                            "3"
+                            "\"Player Health: \" + ToString(PlayerOne.Variable(PlayerHealth))"
                           ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
+                        },
                         {
                           "type": {
-                            "value": "VarObjet"
+                            "value": "ResetTimer"
                           },
                           "parameters": [
                             "PlayerOne",
-                            "PlayerLives",
-                            "<=",
-                            "0"
+                            "\"Player1DestroyedTimer\""
                           ]
                         }
                       ],
-                      "actions": [
+                      "events": [
                         {
-                          "type": {
-                            "value": "SetGlobalVariableAsBoolean"
-                          },
-                          "parameters": [
-                            "Player1_GameOver",
-                            "True"
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "VarGlobal"
+                              },
+                              "parameters": [
+                                "Player1_Lives",
+                                ">",
+                                "0"
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "TextObject::String"
+                              },
+                              "parameters": [
+                                "player1_lives_text",
+                                "=",
+                                "\"Player Lives: \" + ToString(GlobalVariable(Player1_Lives))"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextObject::String"
+                              },
+                              "parameters": [
+                                "player1_health_text",
+                                "=",
+                                "\"Player Health: \" + ToString(PlayerOne.Variable(PlayerHealth))"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "VarGlobal"
+                              },
+                              "parameters": [
+                                "Player1_Lives",
+                                "<=",
+                                "0"
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "TextObject::String"
+                              },
+                              "parameters": [
+                                "player1_lives_text",
+                                "=",
+                                "\"Player Lives: \" + ToString(GlobalVariable(Player1_Lives))"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "SetGlobalVariableAsBoolean"
+                              },
+                              "parameters": [
+                                "Player1_GameOver",
+                                "True"
+                              ]
+                            }
                           ]
                         }
                       ]
@@ -3398,6 +3641,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "Player Input",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -3469,6 +3713,57 @@
                     "",
                     "50",
                     "1"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "These work in conjunction with \"TopDownMovement\" behavior",
+              "comment2": ""
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "PlayerOne",
+                    "Up"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::TopDownMovementBehavior::SetVelocityY"
+                  },
+                  "parameters": [
+                    "PlayerOne",
+                    "TopDownMovement",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "PlayerOne",
+                    "0",
+                    "TimeDelta() * -4000",
+                    ""
                   ]
                 }
               ]
@@ -3567,6 +3862,98 @@
             }
           ],
           "parameters": []
+        },
+        {
+          "colorB": 228,
+          "colorG": 176,
+          "colorR": 74,
+          "creationTime": 0,
+          "disabled": true,
+          "name": "Score Leaderboard",
+          "source": "",
+          "type": "BuiltinCommonInstructions::Group",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Send score to leaderboard",
+              "comment2": ""
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "GlobalVariableAsBoolean"
+                  },
+                  "parameters": [
+                    "GameOver",
+                    "True"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Leaderboards::SavePlayerScore"
+                  },
+                  "parameters": [
+                    "",
+                    "\"e7bedca2-78f1-4eb0-b11c-28d03a232d2d\"",
+                    "9999",
+                    "UsernameTextInput.Text().InputType()"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Go to loaderboard",
+              "comment2": ""
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "GlobalVariableAsBoolean"
+                  },
+                  "parameters": [
+                    "GameOver",
+                    "True"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Leaderboards::DisplayLeaderboard"
+                  },
+                  "parameters": [
+                    "",
+                    "\"e7bedca2-78f1-4eb0-b11c-28d03a232d2d\"",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ],
+          "parameters": []
         }
       ],
       "layers": [
@@ -3610,6 +3997,17 @@
           "followBaseLayerCamera": false,
           "isLightingLayer": false,
           "name": "Player Layer",
+          "visibility": true,
+          "cameras": [],
+          "effects": []
+        },
+        {
+          "ambientLightColorB": 8206376,
+          "ambientLightColorG": 6068864,
+          "ambientLightColorR": 9218288,
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "name": "GUI Layer",
           "visibility": true,
           "cameras": [],
           "effects": []
