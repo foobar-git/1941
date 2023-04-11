@@ -416,6 +416,17 @@
         "name": "Explosion_srpite7",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "file": "assets/Fonts/Roboto-BoldItalic.ttf",
+        "kind": "font",
+        "metadata": "",
+        "name": "8c9a07c662ceae43dd999872f6bd6916cb95b58c2ae373fd0a8aa58b91ce7c43_Roboto-BoldItalic.ttf",
+        "userAdded": true,
+        "origin": {
+          "identifier": "https://asset-resources.gdevelop.io/public-resources/Open Font License/8c9a07c662ceae43dd999872f6bd6916cb95b58c2ae373fd0a8aa58b91ce7c43_Roboto-BoldItalic.ttf",
+          "name": "gdevelop-asset-store"
+        }
       }
     ],
     "resourceFolders": []
@@ -423,6 +434,18 @@
   "objects": [],
   "objectsGroups": [],
   "variables": [
+    {
+      "folded": true,
+      "name": "GameOver",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "folded": true,
+      "name": "Show_LeaderBoard",
+      "type": "boolean",
+      "value": false
+    },
     {
       "folded": true,
       "name": "Player1_GameOver",
@@ -433,7 +456,19 @@
       "folded": true,
       "name": "Player1_Lives",
       "type": "number",
-      "value": 3
+      "value": 1
+    },
+    {
+      "folded": true,
+      "name": "Player1_Score",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "folded": true,
+      "name": "Player2_Score",
+      "type": "number",
+      "value": 0
     },
     {
       "name": "test_enemyRemoved",
@@ -445,12 +480,6 @@
       "name": "EnemyBasicSpeed",
       "type": "number",
       "value": 30
-    },
-    {
-      "folded": true,
-      "name": "GameOver",
-      "type": "boolean",
-      "value": false
     }
   ],
   "layouts": [
@@ -474,7 +503,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": true,
-        "zoomFactor": 0.5614537985871929,
+        "zoomFactor": 0.6850659306927941,
         "windowMask": false
       },
       "objectsGroups": [
@@ -1119,6 +1148,45 @@
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 30,
+          "layer": "Score Leaderboard Layer",
+          "name": "UsernameInput",
+          "persistentUuid": "fa14ee87-3f85-497c-8769-3ed1bcd3a443",
+          "width": 350,
+          "x": 150,
+          "y": 1520,
+          "zOrder": 99,
+          "numberProperties": [],
+          "stringProperties": [
+            {
+              "name": "initialValue",
+              "value": ""
+            },
+            {
+              "name": "placeholder",
+              "value": "Enter your name for the high score!"
+            }
+          ],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 50,
+          "layer": "Score Leaderboard Layer",
+          "name": "Button_Submit",
+          "persistentUuid": "8c7c1970-5f5a-42c8-bdee-d8ebbcf5e705",
+          "width": 110,
+          "x": 540,
+          "y": 1500,
+          "zOrder": 112,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
         }
       ],
       "objects": [
@@ -1268,6 +1336,235 @@
             }
           ],
           "behaviors": []
+        },
+        {
+          "assetStoreId": "41018ca736744e40d8ed9c9123bac1e290b940ead4749bb9ba819ad8ec5b3bd7",
+          "name": "RedBar",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.025,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "Red bar.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "6328cd7b58898580812604004decbfa6be61705ad249b505a0741df9ec07b1a8",
+          "name": "YellowBar",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.025,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "Yellow bar.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "e247bba3f4ba13dc4bd922b81a4a8f252158ca454a303c1efdbb0595d37a2069",
+          "name": "GreenBar",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.025,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "Green bar.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "7cd73b60b8f9a67bc5405a8dd03008c0fb7931dbcf2bc28312089161e77a3b74",
+          "name": "BlueBar",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.025,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "Blue bar.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "7cd73b60b8f9a67bc5405a8dd03008c0fb7931dbcf2bc28312089161e77a3b74",
+          "name": "BlueBarBottom",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.025,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "Blue bar.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "UsernameInput",
+          "tags": "",
+          "type": "TextInput::TextInputObject",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "initialValue": "",
+            "placeholder": "Enter your name",
+            "fontResourceName": "8c9a07c662ceae43dd999872f6bd6916cb95b58c2ae373fd0a8aa58b91ce7c43_Roboto-BoldItalic.ttf",
+            "fontSize": 20,
+            "inputType": "text",
+            "textColor": "0;0;0",
+            "fillColor": "255;255;255",
+            "fillOpacity": 200,
+            "borderColor": "0;0;0",
+            "borderOpacity": 255,
+            "borderWidth": 2,
+            "readOnly": false,
+            "disabled": false
+          }
         },
         {
           "assetStoreId": "2b2dfbbe01d820384d341ecfa1cf553b2700019a4f78c1d6fc4c55cb4b373bf5",
@@ -1701,211 +1998,6 @@
           ]
         },
         {
-          "assetStoreId": "41018ca736744e40d8ed9c9123bac1e290b940ead4749bb9ba819ad8ec5b3bd7",
-          "name": "RedBar",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "animations": [
-            {
-              "name": "",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": true,
-                  "timeBetweenFrames": 0.025,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "Red bar.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "assetStoreId": "6328cd7b58898580812604004decbfa6be61705ad249b505a0741df9ec07b1a8",
-          "name": "YellowBar",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "animations": [
-            {
-              "name": "",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": true,
-                  "timeBetweenFrames": 0.025,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "Yellow bar.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "assetStoreId": "e247bba3f4ba13dc4bd922b81a4a8f252158ca454a303c1efdbb0595d37a2069",
-          "name": "GreenBar",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "animations": [
-            {
-              "name": "",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": true,
-                  "timeBetweenFrames": 0.025,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "Green bar.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "assetStoreId": "7cd73b60b8f9a67bc5405a8dd03008c0fb7931dbcf2bc28312089161e77a3b74",
-          "name": "BlueBar",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "animations": [
-            {
-              "name": "",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": true,
-                  "timeBetweenFrames": 0.025,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "Blue bar.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "assetStoreId": "7cd73b60b8f9a67bc5405a8dd03008c0fb7931dbcf2bc28312089161e77a3b74",
-          "name": "BlueBarBottom",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "animations": [
-            {
-              "name": "",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": true,
-                  "timeBetweenFrames": 0.025,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "Blue bar.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
           "additive": false,
           "assetStoreId": "",
           "destroyWhenNoParticles": true,
@@ -1914,6 +2006,7 @@
           "emitterForceMax": 0,
           "emitterForceMin": 0,
           "flow": 1,
+          "jumpForwardInTimeOnCreation": 0,
           "maxParticleNb": 300,
           "name": "WaterReflections",
           "particleAlpha1": 80,
@@ -2421,6 +2514,25 @@
               ]
             }
           ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "Button_Submit",
+          "tags": "",
+          "type": "BBText::BBText",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "text": "[spacing=10][shadow=orange][font=arial][color=yellow][b][i]OK[/b][/i][/color][/font][/shadow][/spacing]",
+            "opacity": 255,
+            "fontSize": 50,
+            "visible": true,
+            "color": "0;0;0",
+            "fontFamily": "Arial",
+            "align": "left",
+            "wordWrap": true
+          }
         }
       ],
       "events": [
@@ -2517,6 +2629,23 @@
                     "player1_health_text",
                     "=",
                     "\"Player Health: \" + ToString(PlayerOne.Variable(PlayerHealth))"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "Button_Submit"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "HideLayer"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Score Leaderboard Layer\""
                   ]
                 }
               ]
@@ -3207,7 +3336,7 @@
                     "",
                     "assets\\Audio\\explosion.wav",
                     "",
-                    "30",
+                    "10",
                     "1"
                   ]
                 },
@@ -3409,6 +3538,15 @@
                               },
                               "parameters": [
                                 "Player1_GameOver",
+                                "True"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "SetGlobalVariableAsBoolean"
+                              },
+                              "parameters": [
+                                "Show_LeaderBoard",
                                 "True"
                               ]
                             }
@@ -3868,25 +4006,11 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "disabled": true,
           "name": "Score Leaderboard",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
           "events": [
             {
-              "type": "BuiltinCommonInstructions::Comment",
-              "color": {
-                "b": 109,
-                "g": 230,
-                "r": 255,
-                "textB": 0,
-                "textG": 0,
-                "textR": 0
-              },
-              "comment": "Send score to leaderboard",
-              "comment2": ""
-            },
-            {
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -3894,7 +4018,7 @@
                     "value": "GlobalVariableAsBoolean"
                   },
                   "parameters": [
-                    "GameOver",
+                    "Show_LeaderBoard",
                     "True"
                   ]
                 }
@@ -3902,52 +4026,215 @@
               "actions": [
                 {
                   "type": {
-                    "value": "Leaderboards::SavePlayerScore"
+                    "value": "ShowLayer"
                   },
                   "parameters": [
                     "",
-                    "\"e7bedca2-78f1-4eb0-b11c-28d03a232d2d\"",
-                    "9999",
-                    "UsernameTextInput.Text().InputType()"
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Comment",
-              "color": {
-                "b": 109,
-                "g": 230,
-                "r": 255,
-                "textB": 0,
-                "textG": 0,
-                "textR": 0
-              },
-              "comment": "Go to loaderboard",
-              "comment2": ""
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "GlobalVariableAsBoolean"
-                  },
-                  "parameters": [
-                    "GameOver",
-                    "True"
+                    "\"Score Leaderboard Layer\""
                   ]
                 }
               ],
-              "actions": [
+              "events": [
                 {
-                  "type": {
-                    "value": "Leaderboards::DisplayLeaderboard"
-                  },
-                  "parameters": [
-                    "",
-                    "\"e7bedca2-78f1-4eb0-b11c-28d03a232d2d\"",
-                    ""
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "LayerVisible"
+                      },
+                      "parameters": [
+                        "",
+                        "\"Score Leaderboard Layer\""
+                      ]
+                    }
+                  ],
+                  "actions": [],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Once"
+                          },
+                          "parameters": []
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "MettreY"
+                          },
+                          "parameters": [
+                            "Button_Submit",
+                            "=",
+                            "(SceneWindowHeight() / 2) - 15"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "MettreY"
+                          },
+                          "parameters": [
+                            "UsernameInput",
+                            "=",
+                            "(SceneWindowHeight() / 2)"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "TextInput::TextInputObject::Focused"
+                          },
+                          "parameters": [
+                            "UsernameInput"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "Montre"
+                          },
+                          "parameters": [
+                            "Button_Submit",
+                            ""
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Comment",
+                      "color": {
+                        "b": 109,
+                        "g": 230,
+                        "r": 255,
+                        "textB": 0,
+                        "textG": 0,
+                        "textR": 0
+                      },
+                      "comment": "Send score to leaderboard",
+                      "comment2": ""
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "SourisSurObjet"
+                          },
+                          "parameters": [
+                            "Button_Submit",
+                            "",
+                            "",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "MouseButtonReleased"
+                          },
+                          "parameters": [
+                            "",
+                            "Left"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Once"
+                          },
+                          "parameters": []
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "Leaderboards::SavePlayerScore"
+                          },
+                          "parameters": [
+                            "",
+                            "\"e7bedca2-78f1-4eb0-b11c-28d03a232d2d\"",
+                            "GlobalVariable(Player1_Score)",
+                            "UsernameInput.Text()"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Leaderboards::DisplayLeaderboard"
+                          },
+                          "parameters": [
+                            "",
+                            "\"e7bedca2-78f1-4eb0-b11c-28d03a232d2d\"",
+                            "yes"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Comment",
+                      "color": {
+                        "b": 109,
+                        "g": 230,
+                        "r": 255,
+                        "textB": 0,
+                        "textG": 0,
+                        "textR": 0
+                      },
+                      "comment": "Go to loaderboard",
+                      "comment2": ""
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "Leaderboards::IsLeaderboardViewLoaded"
+                          },
+                          "parameters": []
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "Cache"
+                          },
+                          "parameters": [
+                            "Button_Submit"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "HideLayer"
+                          },
+                          "parameters": [
+                            "",
+                            "\"Score Leaderboard Layer\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "PushScene"
+                          },
+                          "parameters": [
+                            "",
+                            "\"Leaderboard Scene\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetGlobalVariableAsBoolean"
+                          },
+                          "parameters": [
+                            "Show_LeaderBoard",
+                            "False"
+                          ]
+                        }
+                      ]
+                    }
                   ]
                 }
               ]
@@ -4011,6 +4298,17 @@
           "visibility": true,
           "cameras": [],
           "effects": []
+        },
+        {
+          "ambientLightColorB": 9250728,
+          "ambientLightColorG": 6069792,
+          "ambientLightColorR": 9588216,
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "name": "Score Leaderboard Layer",
+          "visibility": true,
+          "cameras": [],
+          "effects": []
         }
       ],
       "behaviorsSharedData": [
@@ -4027,6 +4325,83 @@
           "type": "TopDownMovementBehavior::TopDownMovementBehavior"
         }
       ]
+    },
+    {
+      "b": 209,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "Leaderboard_32Scene",
+      "name": "Leaderboard Scene",
+      "r": 209,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": true,
+      "title": "",
+      "v": 209,
+      "uiSettings": {
+        "grid": false,
+        "gridType": "rectangular",
+        "gridWidth": 32,
+        "gridHeight": 32,
+        "gridOffsetX": 0,
+        "gridOffsetY": 0,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": false,
+        "zoomFactor": 0.546875,
+        "windowMask": false
+      },
+      "objectsGroups": [],
+      "variables": [],
+      "instances": [],
+      "objects": [],
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": true,
+                "value": "Leaderboards::IsLeaderboardViewLoaded"
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "PopScene"
+              },
+              "parameters": [
+                ""
+              ]
+            }
+          ]
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 0,
+          "ambientLightColorG": 0,
+          "ambientLightColorR": 0,
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "name": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "behaviorsSharedData": []
     }
   ],
   "externalEvents": [],
