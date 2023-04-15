@@ -599,13 +599,13 @@
   "variables": [
     {
       "folded": true,
-      "name": "GameOver",
+      "name": "Show_LeaderBoard",
       "type": "boolean",
       "value": false
     },
     {
       "folded": true,
-      "name": "Show_LeaderBoard",
+      "name": "GameOver",
       "type": "boolean",
       "value": false
     },
@@ -666,7 +666,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": true,
-        "zoomFactor": 0.5254215838935147,
+        "zoomFactor": 0.7320461908319621,
         "windowMask": false
       },
       "objectsGroups": [
@@ -1163,21 +1163,6 @@
           "angle": 0,
           "customSize": false,
           "height": 0,
-          "layer": "",
-          "name": "TestEnemy_test",
-          "persistentUuid": "1e11e3bc-1ed0-4dbe-afc3-97670d4b461d",
-          "width": 0,
-          "x": 227,
-          "y": 200,
-          "zOrder": 103,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": false,
-          "height": 0,
           "layer": "GUI Layer",
           "name": "player1_lives_text",
           "persistentUuid": "dae5189f-2605-4a2e-a2d6-917ba3755bf1",
@@ -1356,8 +1341,8 @@
           "name": "TestEnemy_test",
           "persistentUuid": "a0fa9510-437d-43ff-8743-9023d15803a0",
           "width": 0,
-          "x": 377,
-          "y": 186,
+          "x": 323,
+          "y": 700,
           "zOrder": 103,
           "numberProperties": [],
           "stringProperties": [],
@@ -1384,10 +1369,55 @@
           "height": 0,
           "layer": "",
           "name": "TestEnemy_test",
-          "persistentUuid": "9011ef2b-ec2b-4bd9-af0f-42b945b42bf4",
+          "persistentUuid": "592c5bc9-0e73-4df9-a443-1f0026b93bac",
           "width": 0,
-          "x": 4,
-          "y": 550,
+          "x": 227,
+          "y": 750,
+          "zOrder": 103,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "TestEnemy_test",
+          "persistentUuid": "6276844f-db14-4f7b-90ec-2dcf32c6636c",
+          "width": 0,
+          "x": 377,
+          "y": 750,
+          "zOrder": 103,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "TestEnemy_test",
+          "persistentUuid": "2943ccb9-38e1-4da2-a622-6af9d8c87406",
+          "width": 0,
+          "x": 427,
+          "y": 800,
+          "zOrder": 103,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "TestEnemy_test",
+          "persistentUuid": "ebda58b3-8eed-4fec-8ab2-e238447b398a",
+          "width": 0,
+          "x": 477,
+          "y": 750,
           "zOrder": 103,
           "numberProperties": [],
           "stringProperties": [],
@@ -1406,7 +1436,12 @@
           "underlined": false,
           "variables": [],
           "effects": [],
-          "behaviors": [],
+          "behaviors": [
+            {
+              "name": "SynchronizedObject",
+              "type": "THNK::SynchronizedObject"
+            }
+          ],
           "string": "Enemy removed: ",
           "font": "e96b43b0ca3fd7775d75a702f44cd1b0dfd325e1db317f7cba84efdf572571fe_Roboto-Regular.ttf",
           "textAlignment": "left",
@@ -1862,7 +1897,12 @@
           "type": "PanelSpriteContinuousBar::PanelSpriteContinuousBar",
           "variables": [],
           "effects": [],
-          "behaviors": [],
+          "behaviors": [
+            {
+              "name": "SynchronizedObject",
+              "type": "THNK::SynchronizedObject"
+            }
+          ],
           "content": {
             "InitialValue": 4,
             "MaxValue": 4,
@@ -1928,7 +1968,12 @@
           "type": "PanelSpriteContinuousBar::PanelSpriteContinuousBar",
           "variables": [],
           "effects": [],
-          "behaviors": [],
+          "behaviors": [
+            {
+              "name": "SynchronizedObject",
+              "type": "THNK::SynchronizedObject"
+            }
+          ],
           "content": {
             "InitialValue": 4,
             "MaxValue": 4,
@@ -2060,19 +2105,37 @@
           "variables": [
             {
               "folded": true,
+              "name": "PlayerID",
+              "type": "number",
+              "value": 0
+            },
+            {
+              "folded": true,
               "name": "PlayerHealth",
               "type": "number",
               "value": 4
             },
             {
               "folded": true,
-              "name": "Right",
+              "name": "MoveRight",
               "type": "boolean",
               "value": false
             },
             {
               "folded": true,
-              "name": "Left",
+              "name": "MoveLeft",
+              "type": "boolean",
+              "value": false
+            },
+            {
+              "folded": true,
+              "name": "MoveUp",
+              "type": "boolean",
+              "value": false
+            },
+            {
+              "folded": true,
+              "name": "MoveDown",
               "type": "boolean",
               "value": false
             },
@@ -2081,12 +2144,6 @@
               "name": "FireBullet",
               "type": "boolean",
               "value": false
-            },
-            {
-              "folded": true,
-              "name": "ID",
-              "type": "number",
-              "value": 0
             }
           ],
           "effects": [],
@@ -2450,7 +2507,12 @@
           "updateIfNotVisible": false,
           "variables": [],
           "effects": [],
-          "behaviors": [],
+          "behaviors": [
+            {
+              "name": "SynchronizedObject",
+              "type": "THNK::SynchronizedObject"
+            }
+          ],
           "animations": [
             {
               "name": "BulletHole_sprite",
@@ -2520,6 +2582,155 @@
         },
         {
           "assetStoreId": "",
+          "name": "Explosion",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "SynchronizedObject",
+              "type": "THNK::SynchronizedObject"
+            }
+          ],
+          "animations": [
+            {
+              "name": "Explosion_srpite",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "metadata": "{\"pskl\":{}}",
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "Explosion_srpite",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 25.5,
+                        "y": 26
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "Explosion_srpite2",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 25.5,
+                        "y": 26
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "Explosion_srpite3",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 25.5,
+                        "y": 26
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "Explosion_srpite4",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 25.5,
+                        "y": 26
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "Explosion_srpite5",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 25.5,
+                        "y": 26
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "Explosion_srpite6",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 25.5,
+                        "y": 26
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "Explosion_srpite7",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 25.5,
+                        "y": 26
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
           "name": "TestEnemy_test",
           "tags": "",
           "type": "Sprite",
@@ -2533,7 +2744,12 @@
             }
           ],
           "effects": [],
-          "behaviors": [],
+          "behaviors": [
+            {
+              "name": "SynchronizedObject",
+              "type": "THNK::SynchronizedObject"
+            }
+          ],
           "animations": [
             {
               "name": "",
@@ -2960,156 +3176,19 @@
           ]
         },
         {
-          "assetStoreId": "",
-          "name": "Explosion",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "animations": [
-            {
-              "name": "Explosion_srpite",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "metadata": "{\"pskl\":{}}",
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "Explosion_srpite",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 25.5,
-                        "y": 26
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    },
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "Explosion_srpite2",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 25.5,
-                        "y": 26
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    },
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "Explosion_srpite3",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 25.5,
-                        "y": 26
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    },
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "Explosion_srpite4",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 25.5,
-                        "y": 26
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    },
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "Explosion_srpite5",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 25.5,
-                        "y": 26
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    },
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "Explosion_srpite6",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 25.5,
-                        "y": 26
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    },
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "Explosion_srpite7",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 25.5,
-                        "y": 26
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
           "assetStoreId": "6ddd39cbbd7bcf2f6346ab65b571e89468a528e58cd81f1839986871e11c8b22",
           "name": "DebugBox",
           "tags": "",
           "type": "Sprite",
           "updateIfNotVisible": false,
-          "variables": [],
+          "variables": [
+            {
+              "folded": true,
+              "name": "e_removed",
+              "type": "number",
+              "value": 0
+            }
+          ],
           "effects": [],
           "behaviors": [],
           "animations": [
@@ -3326,215 +3405,412 @@
               ]
             },
             {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
+              "colorB": 228,
+              "colorG": 176,
+              "colorR": 74,
+              "creationTime": 0,
+              "folded": true,
+              "name": "Bar Collisions",
+              "source": "",
+              "type": "BuiltinCommonInstructions::Group",
+              "events": [
                 {
-                  "type": {
-                    "value": "CollisionNP"
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 35,
+                    "g": 166,
+                    "r": 245,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
                   },
-                  "parameters": [
-                    "RedBar",
-                    "WavesEffect2",
-                    "",
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
+                  "comment": "Screen Boundaries",
+                  "comment2": ""
+                },
                 {
-                  "type": {
-                    "value": "Delete"
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 28,
+                    "g": 231,
+                    "r": 248,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
                   },
-                  "parameters": [
-                    "WavesEffect2",
-                    ""
+                  "comment": "RedBar",
+                  "comment2": ""
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "CollisionNP"
+                      },
+                      "parameters": [
+                        "RedBar",
+                        "WavesEffect1",
+                        "",
+                        "",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Delete"
+                      },
+                      "parameters": [
+                        "WavesEffect1",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "Create"
+                      },
+                      "parameters": [
+                        "",
+                        "WavesEffect1",
+                        "-450",
+                        "-400",
+                        ""
+                      ]
+                    }
                   ]
                 },
                 {
-                  "type": {
-                    "value": "Create"
-                  },
-                  "parameters": [
-                    "",
-                    "WavesEffect2",
-                    "-450",
-                    "-400",
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "CollisionNP"
-                  },
-                  "parameters": [
-                    "RedBar",
-                    "WavesEffect1",
-                    "",
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "Delete"
-                  },
-                  "parameters": [
-                    "WavesEffect1",
-                    ""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "Create"
-                  },
-                  "parameters": [
-                    "",
-                    "WavesEffect1",
-                    "-450",
-                    "-400",
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "CollisionNP"
-                  },
-                  "parameters": [
-                    "RedBar",
-                    "WaterReflections",
-                    "",
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "Delete"
-                  },
-                  "parameters": [
-                    "WaterReflections",
-                    ""
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "CollisionNP"
+                      },
+                      "parameters": [
+                        "RedBar",
+                        "WavesEffect2",
+                        "",
+                        "",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Delete"
+                      },
+                      "parameters": [
+                        "WavesEffect2",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "Create"
+                      },
+                      "parameters": [
+                        "",
+                        "WavesEffect2",
+                        "-450",
+                        "-400",
+                        ""
+                      ]
+                    }
                   ]
                 },
                 {
-                  "type": {
-                    "value": "Create"
-                  },
-                  "parameters": [
-                    "",
-                    "WaterReflections",
-                    "360",
-                    "-470",
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "CollisionNP"
-                  },
-                  "parameters": [
-                    "RedBar",
-                    "IslandGroup",
-                    "",
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "Delete"
-                  },
-                  "parameters": [
-                    "IslandGroup",
-                    ""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "CreateByName"
-                  },
-                  "parameters": [
-                    "",
-                    "IslandGroup",
-                    "\"Island\" + ToString(RandomInRange(1, 8))",
-                    "-50 + RandomInRange(0, 770)",
-                    "-100 + RandomInRange(0, -400)",
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Comment",
-              "color": {
-                "b": 109,
-                "g": 230,
-                "r": 255,
-                "textB": 0,
-                "textG": 0,
-                "textR": 0
-              },
-              "comment": "// fix for bullet spawning at X = 0 bug",
-              "comment2": ""
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "CompareTimer"
-                  },
-                  "parameters": [
-                    "",
-                    "\"TEST_Timer\"",
-                    ">=",
-                    "2"
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "MettreX"
-                  },
-                  "parameters": [
-                    "Player",
-                    "-",
-                    "0.1"
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "CollisionNP"
+                      },
+                      "parameters": [
+                        "RedBar",
+                        "WaterReflections",
+                        "",
+                        "",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Delete"
+                      },
+                      "parameters": [
+                        "WaterReflections",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "Create"
+                      },
+                      "parameters": [
+                        "",
+                        "WaterReflections",
+                        "360",
+                        "-470",
+                        ""
+                      ]
+                    }
                   ]
                 },
                 {
-                  "type": {
-                    "value": "ResetTimer"
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "CollisionNP"
+                      },
+                      "parameters": [
+                        "RedBar",
+                        "IslandGroup",
+                        "",
+                        "",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Delete"
+                      },
+                      "parameters": [
+                        "IslandGroup",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "CreateByName"
+                      },
+                      "parameters": [
+                        "",
+                        "IslandGroup",
+                        "\"Island\" + ToString(RandomInRange(1, 8))",
+                        "-50 + RandomInRange(0, 770)",
+                        "-100 + RandomInRange(0, -400)",
+                        ""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "CollisionNP"
+                      },
+                      "parameters": [
+                        "RedBar",
+                        "TestEnemy_test",
+                        "",
+                        "",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Delete"
+                      },
+                      "parameters": [
+                        "TestEnemy_test",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarGlobal"
+                      },
+                      "parameters": [
+                        "test_enemyRemoved",
+                        "+",
+                        "1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "TextObject::String"
+                      },
+                      "parameters": [
+                        "guiText",
+                        "=",
+                        "\"Enemy removed: \" + ToString(GlobalVariable(test_enemyRemoved))"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "CollisionNP"
+                      },
+                      "parameters": [
+                        "RedBar",
+                        "BulletHole",
+                        "",
+                        "",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Delete"
+                      },
+                      "parameters": [
+                        "BulletHole",
+                        ""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "CollisionNP"
+                      },
+                      "parameters": [
+                        "RedBar",
+                        "Explosion",
+                        "",
+                        "",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Delete"
+                      },
+                      "parameters": [
+                        "Explosion",
+                        ""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 28,
+                    "g": 231,
+                    "r": 248,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
                   },
-                  "parameters": [
-                    "",
-                    "\"BulletFixTimer\""
+                  "comment": "BlueBar",
+                  "comment2": ""
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "CollisionNP"
+                      },
+                      "parameters": [
+                        "BlueBar",
+                        "PlayerBullet",
+                        "",
+                        "",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Delete"
+                      },
+                      "parameters": [
+                        "PlayerBullet",
+                        ""
+                      ]
+                    }
                   ]
                 }
-              ]
+              ],
+              "parameters": []
+            },
+            {
+              "colorB": 228,
+              "colorG": 176,
+              "colorR": 74,
+              "creationTime": 0,
+              "folded": true,
+              "name": "Bullet Fix",
+              "source": "",
+              "type": "BuiltinCommonInstructions::Group",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 109,
+                    "g": 230,
+                    "r": 255,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
+                  },
+                  "comment": "// fix for bullet spawning at X = 0 bug",
+                  "comment2": ""
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "CompareTimer"
+                      },
+                      "parameters": [
+                        "",
+                        "\"BulletFixTimer\"",
+                        ">=",
+                        "2"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "MettreX"
+                      },
+                      "parameters": [
+                        "Player",
+                        "-",
+                        "0.1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetTimer"
+                      },
+                      "parameters": [
+                        "",
+                        "\"BulletFixTimer\""
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": []
             }
           ],
           "parameters": []
@@ -3604,10 +3880,24 @@
                       "colorG": 176,
                       "colorR": 74,
                       "creationTime": 0,
-                      "name": "Message Sender",
+                      "folded": true,
+                      "name": "Message Sender (From Client to Server)",
                       "source": "",
                       "type": "BuiltinCommonInstructions::Group",
                       "events": [
+                        {
+                          "type": "BuiltinCommonInstructions::Comment",
+                          "color": {
+                            "b": 109,
+                            "g": 230,
+                            "r": 255,
+                            "textB": 0,
+                            "textG": 0,
+                            "textR": 0
+                          },
+                          "comment": "Movement",
+                          "comment2": ""
+                        },
                         {
                           "type": "BuiltinCommonInstructions::Standard",
                           "conditions": [
@@ -3629,60 +3919,6 @@
                               "parameters": [
                                 "",
                                 "\"Right\"",
-                                "",
-                                ""
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [
-                            {
-                              "type": {
-                                "value": "KeyPressed"
-                              },
-                              "parameters": [
-                                "",
-                                "Left"
-                              ]
-                            }
-                          ],
-                          "actions": [
-                            {
-                              "type": {
-                                "value": "THNK::SendMessage"
-                              },
-                              "parameters": [
-                                "",
-                                "\"Left\"",
-                                "",
-                                ""
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [
-                            {
-                              "type": {
-                                "value": "KeyPressed"
-                              },
-                              "parameters": [
-                                "",
-                                "Space"
-                              ]
-                            }
-                          ],
-                          "actions": [
-                            {
-                              "type": {
-                                "value": "THNK::SendMessage"
-                              },
-                              "parameters": [
-                                "",
-                                "\"Space\"",
                                 "",
                                 ""
                               ]
@@ -3721,6 +3957,33 @@
                           "conditions": [
                             {
                               "type": {
+                                "value": "KeyPressed"
+                              },
+                              "parameters": [
+                                "",
+                                "Left"
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "THNK::SendMessage"
+                              },
+                              "parameters": [
+                                "",
+                                "\"Left\"",
+                                "",
+                                ""
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
                                 "value": "KeyReleased"
                               },
                               "parameters": [
@@ -3737,6 +4000,154 @@
                               "parameters": [
                                 "",
                                 "\"LeftReleased\"",
+                                "",
+                                ""
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "KeyPressed"
+                              },
+                              "parameters": [
+                                "",
+                                "Up"
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "THNK::SendMessage"
+                              },
+                              "parameters": [
+                                "",
+                                "\"Up\"",
+                                "",
+                                ""
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "KeyReleased"
+                              },
+                              "parameters": [
+                                "",
+                                "Up"
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "THNK::SendMessage"
+                              },
+                              "parameters": [
+                                "",
+                                "\"UpReleased\"",
+                                "",
+                                ""
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "KeyPressed"
+                              },
+                              "parameters": [
+                                "",
+                                "Down"
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "THNK::SendMessage"
+                              },
+                              "parameters": [
+                                "",
+                                "\"Down\"",
+                                "",
+                                ""
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "KeyReleased"
+                              },
+                              "parameters": [
+                                "",
+                                "Down"
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "THNK::SendMessage"
+                              },
+                              "parameters": [
+                                "",
+                                "\"DownReleased\"",
+                                "",
+                                ""
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Comment",
+                          "color": {
+                            "b": 109,
+                            "g": 230,
+                            "r": 255,
+                            "textB": 0,
+                            "textG": 0,
+                            "textR": 0
+                          },
+                          "comment": "Fire Bullet",
+                          "comment2": ""
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "KeyPressed"
+                              },
+                              "parameters": [
+                                "",
+                                "Space"
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "THNK::SendMessage"
+                              },
+                              "parameters": [
+                                "",
+                                "\"Space\"",
                                 "",
                                 ""
                               ]
@@ -3845,6 +4256,7 @@
                       "colorG": 176,
                       "colorR": 74,
                       "creationTime": 0,
+                      "folded": true,
                       "name": "Connections",
                       "source": "",
                       "type": "BuiltinCommonInstructions::Group",
@@ -3907,7 +4319,7 @@
                                   },
                                   "parameters": [
                                     "Player",
-                                    "ID",
+                                    "PlayerID",
                                     "+",
                                     "1"
                                   ]
@@ -3917,7 +4329,7 @@
                                     "value": "DebuggerTools::ConsoleLog"
                                   },
                                   "parameters": [
-                                    "\"ID: \" + ToString(Player.Variable(ID))",
+                                    "\"PlayerID: \" + ToString(Player.Variable(PlayerID))",
                                     "",
                                     ""
                                   ]
@@ -3970,7 +4382,7 @@
                                   },
                                   "parameters": [
                                     "Player",
-                                    "ID",
+                                    "PlayerID",
                                     "+",
                                     "1"
                                   ]
@@ -4017,6 +4429,15 @@
                                     "Player",
                                     ""
                                   ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Delete"
+                                  },
+                                  "parameters": [
+                                    "PlayerOne_sprite",
+                                    ""
+                                  ]
                                 }
                               ],
                               "events": [
@@ -4029,7 +4450,7 @@
                                       },
                                       "parameters": [
                                         "Player",
-                                        "ID",
+                                        "PlayerID",
                                         "=",
                                         "2"
                                       ]
@@ -4068,6 +4489,7 @@
                           "colorG": 176,
                           "colorR": 74,
                           "creationTime": 0,
+                          "folded": true,
                           "name": "Move Right",
                           "source": "",
                           "type": "BuiltinCommonInstructions::Group",
@@ -4107,7 +4529,7 @@
                                   },
                                   "parameters": [
                                     "Player",
-                                    "Right",
+                                    "MoveRight",
                                     "True"
                                   ]
                                 }
@@ -4148,7 +4570,7 @@
                                   },
                                   "parameters": [
                                     "Player",
-                                    "Right",
+                                    "MoveRight",
                                     "False"
                                   ]
                                 }
@@ -4162,6 +4584,7 @@
                           "colorG": 176,
                           "colorR": 74,
                           "creationTime": 0,
+                          "folded": true,
                           "name": "Move Left",
                           "source": "",
                           "type": "BuiltinCommonInstructions::Group",
@@ -4201,7 +4624,7 @@
                                   },
                                   "parameters": [
                                     "Player",
-                                    "Left",
+                                    "MoveLeft",
                                     "True"
                                   ]
                                 }
@@ -4242,7 +4665,7 @@
                                   },
                                   "parameters": [
                                     "Player",
-                                    "Left",
+                                    "MoveLeft",
                                     "False"
                                   ]
                                 }
@@ -4256,6 +4679,197 @@
                           "colorG": 176,
                           "colorR": 74,
                           "creationTime": 0,
+                          "folded": true,
+                          "name": "Move Up",
+                          "source": "",
+                          "type": "BuiltinCommonInstructions::Group",
+                          "events": [
+                            {
+                              "infiniteLoopWarning": true,
+                              "type": "BuiltinCommonInstructions::While",
+                              "whileConditions": [
+                                {
+                                  "type": {
+                                    "value": "THNK::OnMessage"
+                                  },
+                                  "parameters": [
+                                    "",
+                                    "\"Up\"",
+                                    "",
+                                    ""
+                                  ]
+                                }
+                              ],
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "THNK::UseLinkedObjects"
+                                  },
+                                  "parameters": [
+                                    "",
+                                    "Player",
+                                    ""
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "SetObjectVariableAsBoolean"
+                                  },
+                                  "parameters": [
+                                    "Player",
+                                    "MoveUp",
+                                    "True"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "infiniteLoopWarning": true,
+                              "type": "BuiltinCommonInstructions::While",
+                              "whileConditions": [
+                                {
+                                  "type": {
+                                    "value": "THNK::OnMessage"
+                                  },
+                                  "parameters": [
+                                    "",
+                                    "\"UpReleased\"",
+                                    "",
+                                    ""
+                                  ]
+                                }
+                              ],
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "THNK::UseLinkedObjects"
+                                  },
+                                  "parameters": [
+                                    "",
+                                    "Player",
+                                    ""
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "SetObjectVariableAsBoolean"
+                                  },
+                                  "parameters": [
+                                    "Player",
+                                    "MoveUp",
+                                    "False"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "parameters": []
+                        },
+                        {
+                          "colorB": 228,
+                          "colorG": 176,
+                          "colorR": 74,
+                          "creationTime": 0,
+                          "folded": true,
+                          "name": "Move Down",
+                          "source": "",
+                          "type": "BuiltinCommonInstructions::Group",
+                          "events": [
+                            {
+                              "infiniteLoopWarning": true,
+                              "type": "BuiltinCommonInstructions::While",
+                              "whileConditions": [
+                                {
+                                  "type": {
+                                    "value": "THNK::OnMessage"
+                                  },
+                                  "parameters": [
+                                    "",
+                                    "\"Down\"",
+                                    "",
+                                    ""
+                                  ]
+                                }
+                              ],
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "THNK::UseLinkedObjects"
+                                  },
+                                  "parameters": [
+                                    "",
+                                    "Player",
+                                    ""
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "SetObjectVariableAsBoolean"
+                                  },
+                                  "parameters": [
+                                    "Player",
+                                    "MoveDown",
+                                    "True"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "infiniteLoopWarning": true,
+                              "type": "BuiltinCommonInstructions::While",
+                              "whileConditions": [
+                                {
+                                  "type": {
+                                    "value": "THNK::OnMessage"
+                                  },
+                                  "parameters": [
+                                    "",
+                                    "\"DownReleased\"",
+                                    "",
+                                    ""
+                                  ]
+                                }
+                              ],
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "THNK::UseLinkedObjects"
+                                  },
+                                  "parameters": [
+                                    "",
+                                    "Player",
+                                    ""
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "SetObjectVariableAsBoolean"
+                                  },
+                                  "parameters": [
+                                    "Player",
+                                    "MoveDown",
+                                    "False"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "parameters": []
+                        },
+                        {
+                          "colorB": 228,
+                          "colorG": 176,
+                          "colorR": 74,
+                          "creationTime": 0,
+                          "folded": true,
                           "name": "Fire Bullet",
                           "source": "",
                           "type": "BuiltinCommonInstructions::Group",
@@ -4346,7 +4960,7 @@
                                   },
                                   "parameters": [
                                     "",
-                                    "\"TEST_Timer\""
+                                    "\"BulletFixTimer\""
                                   ]
                                 }
                               ]
@@ -4362,6 +4976,7 @@
                       "colorG": 176,
                       "colorR": 74,
                       "creationTime": 0,
+                      "folded": true,
                       "name": "Input Processing",
                       "source": "",
                       "type": "BuiltinCommonInstructions::Group",
@@ -4393,6 +5008,19 @@
                           ]
                         },
                         {
+                          "type": "BuiltinCommonInstructions::Comment",
+                          "color": {
+                            "b": 109,
+                            "g": 230,
+                            "r": 255,
+                            "textB": 0,
+                            "textG": 0,
+                            "textR": 0
+                          },
+                          "comment": "Movement",
+                          "comment2": ""
+                        },
+                        {
                           "type": "BuiltinCommonInstructions::Standard",
                           "conditions": [
                             {
@@ -4401,7 +5029,7 @@
                               },
                               "parameters": [
                                 "Player",
-                                "Right",
+                                "MoveRight",
                                 "True"
                               ]
                             }
@@ -4428,7 +5056,7 @@
                               },
                               "parameters": [
                                 "Player",
-                                "Left",
+                                "MoveLeft",
                                 "True"
                               ]
                             }
@@ -4447,6 +5075,74 @@
                           ]
                         },
                         {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "ObjectVariableAsBoolean"
+                              },
+                              "parameters": [
+                                "Player",
+                                "MoveUp",
+                                "True"
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "TopDownMovementBehavior::SimulateControl"
+                              },
+                              "parameters": [
+                                "Player",
+                                "TopDownMovement",
+                                "\"Up\""
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "ObjectVariableAsBoolean"
+                              },
+                              "parameters": [
+                                "Player",
+                                "MoveDown",
+                                "True"
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "TopDownMovementBehavior::SimulateControl"
+                              },
+                              "parameters": [
+                                "Player",
+                                "TopDownMovement",
+                                "\"Down\""
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Comment",
+                          "color": {
+                            "b": 109,
+                            "g": 230,
+                            "r": 255,
+                            "textB": 0,
+                            "textG": 0,
+                            "textR": 0
+                          },
+                          "comment": "Fire Bullet",
+                          "comment2": ""
+                        },
+                        {
+                          "folded": true,
                           "type": "BuiltinCommonInstructions::Standard",
                           "conditions": [
                             {
@@ -4534,6 +5230,7 @@
                       "colorG": 176,
                       "colorR": 74,
                       "creationTime": 0,
+                      "folded": true,
                       "name": "Player Sprites",
                       "source": "",
                       "type": "BuiltinCommonInstructions::Group",
@@ -4636,7 +5333,7 @@
                                   },
                                   "parameters": [
                                     "Player",
-                                    "ID",
+                                    "PlayerID",
                                     "=",
                                     "2"
                                   ]
@@ -4658,6 +5355,533 @@
                               ]
                             }
                           ]
+                        }
+                      ],
+                      "parameters": []
+                    },
+                    {
+                      "colorB": 228,
+                      "colorG": 176,
+                      "colorR": 74,
+                      "creationTime": 0,
+                      "name": "Collision Logic",
+                      "source": "",
+                      "type": "BuiltinCommonInstructions::Group",
+                      "events": [
+                        {
+                          "colorB": 228,
+                          "colorG": 176,
+                          "colorR": 74,
+                          "creationTime": 0,
+                          "folded": true,
+                          "name": "Enemy vs Bullet",
+                          "source": "",
+                          "type": "BuiltinCommonInstructions::Group",
+                          "events": [
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "CollisionNP"
+                                  },
+                                  "parameters": [
+                                    "EnemyGroup",
+                                    "PlayerBullet",
+                                    "",
+                                    "",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "BuiltinCommonInstructions::Once"
+                                  },
+                                  "parameters": []
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "Delete"
+                                  },
+                                  "parameters": [
+                                    "PlayerBullet",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Create"
+                                  },
+                                  "parameters": [
+                                    "",
+                                    "BulletHole",
+                                    "PlayerBullet.X()",
+                                    "PlayerBullet.Y()",
+                                    "\"Player Layer\""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "ModVarObjet"
+                                  },
+                                  "parameters": [
+                                    "TestEnemy_test",
+                                    "EnemyHealth",
+                                    "-",
+                                    "1"
+                                  ]
+                                }
+                              ],
+                              "events": [
+                                {
+                                  "type": "BuiltinCommonInstructions::Standard",
+                                  "conditions": [
+                                    {
+                                      "type": {
+                                        "value": "VarObjet"
+                                      },
+                                      "parameters": [
+                                        "EnemyGroup",
+                                        "EnemyHealth",
+                                        "<=",
+                                        "0"
+                                      ]
+                                    }
+                                  ],
+                                  "actions": [
+                                    {
+                                      "type": {
+                                        "value": "Create"
+                                      },
+                                      "parameters": [
+                                        "",
+                                        "Explosion",
+                                        "EnemyGroup.X()",
+                                        "EnemyGroup.Y()",
+                                        "\"Player Layer\""
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "PlaySound"
+                                      },
+                                      "parameters": [
+                                        "",
+                                        "assets\\Audio\\explosion.wav",
+                                        "",
+                                        "30",
+                                        "1"
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "Delete"
+                                      },
+                                      "parameters": [
+                                        "PlayerBullet",
+                                        ""
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "Delete"
+                                      },
+                                      "parameters": [
+                                        "BulletHole",
+                                        ""
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "Delete"
+                                      },
+                                      "parameters": [
+                                        "EnemyGroup",
+                                        ""
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "ModVarGlobal"
+                                      },
+                                      "parameters": [
+                                        "test_enemyRemoved",
+                                        "+",
+                                        "1"
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "TextObject::String"
+                                      },
+                                      "parameters": [
+                                        "guiText",
+                                        "=",
+                                        "\"Enemy removed: \" + ToString(GlobalVariable(test_enemyRemoved))"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "MettreY"
+                                  },
+                                  "parameters": [
+                                    "BulletHole",
+                                    "+",
+                                    "TimeDelta() * GlobalVariable(EnemyBasicSpeed)"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Opacity"
+                                  },
+                                  "parameters": [
+                                    "BulletHole",
+                                    "-",
+                                    "TimeDelta() * 600"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "MettreY"
+                                  },
+                                  "parameters": [
+                                    "Explosion",
+                                    "+",
+                                    "TimeDelta() * GlobalVariable(EnemyBasicSpeed)"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Opacity"
+                                  },
+                                  "parameters": [
+                                    "Explosion",
+                                    "-",
+                                    "TimeDelta() * 1000"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "parameters": []
+                        },
+                        {
+                          "colorB": 228,
+                          "colorG": 176,
+                          "colorR": 74,
+                          "creationTime": 0,
+                          "name": "Enemy vs Player",
+                          "source": "",
+                          "type": "BuiltinCommonInstructions::Group",
+                          "events": [
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "CollisionNP"
+                                  },
+                                  "parameters": [
+                                    "EnemyGroup",
+                                    "PlayerGroup",
+                                    "",
+                                    "",
+                                    ""
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "ModVarObjet"
+                                  },
+                                  "parameters": [
+                                    "EnemyGroup",
+                                    "EnemyHealth",
+                                    "=",
+                                    "0"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Create"
+                                  },
+                                  "parameters": [
+                                    "",
+                                    "Explosion",
+                                    "EnemyGroup.X()",
+                                    "EnemyGroup.Y()",
+                                    "\"Player Layer\""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "PlaySound"
+                                  },
+                                  "parameters": [
+                                    "",
+                                    "assets\\Audio\\explosion.wav",
+                                    "",
+                                    "10",
+                                    "1"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Delete"
+                                  },
+                                  "parameters": [
+                                    "EnemyGroup",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "ModVarGlobal"
+                                  },
+                                  "parameters": [
+                                    "test_enemyRemoved",
+                                    "+",
+                                    "1"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "TextObject::String"
+                                  },
+                                  "parameters": [
+                                    "guiText",
+                                    "=",
+                                    "\"Enemy removed: \" + ToString(GlobalVariable(test_enemyRemoved))"
+                                  ]
+                                }
+                              ],
+                              "events": [
+                                {
+                                  "type": "BuiltinCommonInstructions::Standard",
+                                  "conditions": [
+                                    {
+                                      "type": {
+                                        "value": "GlobalVariableAsBoolean"
+                                      },
+                                      "parameters": [
+                                        "Player1_GameOver",
+                                        "False"
+                                      ]
+                                    }
+                                  ],
+                                  "actions": [
+                                    {
+                                      "type": {
+                                        "value": "ModVarObjet"
+                                      },
+                                      "parameters": [
+                                        "Player",
+                                        "PlayerHealth",
+                                        "-",
+                                        "1"
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "PanelSpriteContinuousBar::PanelSpriteContinuousBar::SetValue"
+                                      },
+                                      "parameters": [
+                                        "Player1_HealthBar",
+                                        "-",
+                                        "1",
+                                        ""
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "TextObject::String"
+                                      },
+                                      "parameters": [
+                                        "player1_health_text",
+                                        "=",
+                                        "\"Player Health: \" + ToString(Player.Variable(PlayerHealth))"
+                                      ]
+                                    }
+                                  ],
+                                  "events": [
+                                    {
+                                      "type": "BuiltinCommonInstructions::Standard",
+                                      "conditions": [
+                                        {
+                                          "type": {
+                                            "value": "VarObjet"
+                                          },
+                                          "parameters": [
+                                            "Player",
+                                            "PlayerHealth",
+                                            "<=",
+                                            "0"
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "BuiltinCommonInstructions::Once"
+                                          },
+                                          "parameters": []
+                                        }
+                                      ],
+                                      "actions": [
+                                        {
+                                          "type": {
+                                            "value": "Cache"
+                                          },
+                                          "parameters": [
+                                            "PlayerOne_sprite"
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "ModVarGlobal"
+                                          },
+                                          "parameters": [
+                                            "Player1_Lives",
+                                            "-",
+                                            "1"
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "TiledSpriteObject::Width"
+                                          },
+                                          "parameters": [
+                                            "Player1_lives_sprite",
+                                            "-",
+                                            "13"
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "TextObject::String"
+                                          },
+                                          "parameters": [
+                                            "player1_health_text",
+                                            "=",
+                                            "\"Player Health: \" + ToString(Player.Variable(PlayerHealth))"
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "ResetTimer"
+                                          },
+                                          "parameters": [
+                                            "PlayerOne",
+                                            "\"Player1DestroyedTimer\""
+                                          ]
+                                        }
+                                      ],
+                                      "events": [
+                                        {
+                                          "type": "BuiltinCommonInstructions::Standard",
+                                          "conditions": [
+                                            {
+                                              "type": {
+                                                "value": "VarGlobal"
+                                              },
+                                              "parameters": [
+                                                "Player1_Lives",
+                                                ">",
+                                                "0"
+                                              ]
+                                            }
+                                          ],
+                                          "actions": [
+                                            {
+                                              "type": {
+                                                "value": "TextObject::String"
+                                              },
+                                              "parameters": [
+                                                "player1_lives_text",
+                                                "=",
+                                                "\"Player Lives: \" + ToString(GlobalVariable(Player1_Lives))"
+                                              ]
+                                            },
+                                            {
+                                              "type": {
+                                                "value": "TextObject::String"
+                                              },
+                                              "parameters": [
+                                                "player1_health_text",
+                                                "=",
+                                                "\"Player Health: \" + ToString(Player.Variable(PlayerHealth))"
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": "BuiltinCommonInstructions::Standard",
+                                          "conditions": [
+                                            {
+                                              "type": {
+                                                "value": "VarGlobal"
+                                              },
+                                              "parameters": [
+                                                "Player1_Lives",
+                                                "<=",
+                                                "0"
+                                              ]
+                                            }
+                                          ],
+                                          "actions": [
+                                            {
+                                              "type": {
+                                                "value": "TextObject::String"
+                                              },
+                                              "parameters": [
+                                                "player1_lives_text",
+                                                "=",
+                                                "\"Player Lives: \" + ToString(GlobalVariable(Player1_Lives))"
+                                              ]
+                                            },
+                                            {
+                                              "type": {
+                                                "value": "SetGlobalVariableAsBoolean"
+                                              },
+                                              "parameters": [
+                                                "Player1_GameOver",
+                                                "True"
+                                              ]
+                                            },
+                                            {
+                                              "type": {
+                                                "value": "SetGlobalVariableAsBoolean"
+                                              },
+                                              "parameters": [
+                                                "Show_LeaderBoard",
+                                                "True"
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "parameters": []
                         }
                       ],
                       "parameters": []
@@ -4791,8 +6015,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
-          "name": "Player Respawning (singel player)",
+          "name": "Player Respawning",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
           "events": [
@@ -4857,6 +6080,15 @@
                     },
                     {
                       "type": {
+                        "value": "Montre"
+                      },
+                      "parameters": [
+                        "PlayerOne_sprite",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
                         "value": "TextObject::String"
                       },
                       "parameters": [
@@ -4884,720 +6116,6 @@
                         "\"Player1DestroyedTimer\""
                       ]
                     }
-                  ]
-                }
-              ]
-            }
-          ],
-          "parameters": []
-        },
-        {
-          "colorB": 228,
-          "colorG": 176,
-          "colorR": 74,
-          "creationTime": 0,
-          "folded": true,
-          "name": "Collision Logic",
-          "source": "",
-          "type": "BuiltinCommonInstructions::Group",
-          "events": [
-            {
-              "type": "BuiltinCommonInstructions::Comment",
-              "color": {
-                "b": 35,
-                "g": 166,
-                "r": 245,
-                "textB": 0,
-                "textG": 0,
-                "textR": 0
-              },
-              "comment": "Screen Boundaries",
-              "comment2": ""
-            },
-            {
-              "type": "BuiltinCommonInstructions::Comment",
-              "color": {
-                "b": 28,
-                "g": 231,
-                "r": 248,
-                "textB": 0,
-                "textG": 0,
-                "textR": 0
-              },
-              "comment": "RedBar",
-              "comment2": ""
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "CollisionNP"
-                  },
-                  "parameters": [
-                    "RedBar",
-                    "TestEnemy_test",
-                    "",
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "Delete"
-                  },
-                  "parameters": [
-                    "TestEnemy_test",
-                    ""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ModVarGlobal"
-                  },
-                  "parameters": [
-                    "test_enemyRemoved",
-                    "+",
-                    "1"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "TextObject::String"
-                  },
-                  "parameters": [
-                    "guiText",
-                    "=",
-                    "\"Enemy removed: \" + ToString(GlobalVariable(test_enemyRemoved))"
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "CollisionNP"
-                  },
-                  "parameters": [
-                    "RedBar",
-                    "BulletHole",
-                    "",
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "Delete"
-                  },
-                  "parameters": [
-                    "BulletHole",
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "CollisionNP"
-                  },
-                  "parameters": [
-                    "RedBar",
-                    "Explosion",
-                    "",
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "Delete"
-                  },
-                  "parameters": [
-                    "Explosion",
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Comment",
-              "color": {
-                "b": 28,
-                "g": 231,
-                "r": 248,
-                "textB": 0,
-                "textG": 0,
-                "textR": 0
-              },
-              "comment": "BlueBar",
-              "comment2": ""
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "CollisionNP"
-                  },
-                  "parameters": [
-                    "BlueBar",
-                    "PlayerBullet",
-                    "",
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "Delete"
-                  },
-                  "parameters": [
-                    "PlayerBullet",
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Comment",
-              "color": {
-                "b": 35,
-                "g": 166,
-                "r": 245,
-                "textB": 0,
-                "textG": 0,
-                "textR": 0
-              },
-              "comment": "Object Collisions",
-              "comment2": ""
-            },
-            {
-              "type": "BuiltinCommonInstructions::Comment",
-              "color": {
-                "b": 109,
-                "g": 230,
-                "r": 255,
-                "textB": 0,
-                "textG": 0,
-                "textR": 0
-              },
-              "comment": "Enemy vs Player",
-              "comment2": ""
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "CollisionNP"
-                  },
-                  "parameters": [
-                    "EnemyGroup",
-                    "PlayerGroup",
-                    "",
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "ModVarObjet"
-                  },
-                  "parameters": [
-                    "EnemyGroup",
-                    "EnemyHealth",
-                    "=",
-                    "0"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "Create"
-                  },
-                  "parameters": [
-                    "",
-                    "Explosion",
-                    "EnemyGroup.X()",
-                    "EnemyGroup.Y()",
-                    "\"Player Layer\""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "PlaySound"
-                  },
-                  "parameters": [
-                    "",
-                    "assets\\Audio\\explosion.wav",
-                    "",
-                    "10",
-                    "1"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "Delete"
-                  },
-                  "parameters": [
-                    "EnemyGroup",
-                    ""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ModVarGlobal"
-                  },
-                  "parameters": [
-                    "test_enemyRemoved",
-                    "+",
-                    "1"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "TextObject::String"
-                  },
-                  "parameters": [
-                    "guiText",
-                    "=",
-                    "\"Enemy removed: \" + ToString(GlobalVariable(test_enemyRemoved))"
-                  ]
-                }
-              ],
-              "events": [
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "GlobalVariableAsBoolean"
-                      },
-                      "parameters": [
-                        "Player1_GameOver",
-                        "False"
-                      ]
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "ModVarObjet"
-                      },
-                      "parameters": [
-                        "PlayerOne_sprite",
-                        "PlayerHealth",
-                        "-",
-                        "1"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "PanelSpriteContinuousBar::PanelSpriteContinuousBar::SetValue"
-                      },
-                      "parameters": [
-                        "Player1_HealthBar",
-                        "-",
-                        "1",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "TextObject::String"
-                      },
-                      "parameters": [
-                        "player1_health_text",
-                        "=",
-                        "\"Player Health: \" + ToString(PlayerOne_sprite.Variable(PlayerHealth))"
-                      ]
-                    }
-                  ],
-                  "events": [
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "VarObjet"
-                          },
-                          "parameters": [
-                            "PlayerOne_sprite",
-                            "PlayerHealth",
-                            "<=",
-                            "0"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "BuiltinCommonInstructions::Once"
-                          },
-                          "parameters": []
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "Delete"
-                          },
-                          "parameters": [
-                            "PlayerOne_sprite",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "ModVarGlobal"
-                          },
-                          "parameters": [
-                            "Player1_Lives",
-                            "-",
-                            "1"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "TiledSpriteObject::Width"
-                          },
-                          "parameters": [
-                            "Player1_lives_sprite",
-                            "-",
-                            "13"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "TextObject::String"
-                          },
-                          "parameters": [
-                            "player1_health_text",
-                            "=",
-                            "\"Player Health: \" + ToString(PlayerOne_sprite.Variable(PlayerHealth))"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "ResetTimer"
-                          },
-                          "parameters": [
-                            "PlayerOne",
-                            "\"Player1DestroyedTimer\""
-                          ]
-                        }
-                      ],
-                      "events": [
-                        {
-                          "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [
-                            {
-                              "type": {
-                                "value": "VarGlobal"
-                              },
-                              "parameters": [
-                                "Player1_Lives",
-                                ">",
-                                "0"
-                              ]
-                            }
-                          ],
-                          "actions": [
-                            {
-                              "type": {
-                                "value": "TextObject::String"
-                              },
-                              "parameters": [
-                                "player1_lives_text",
-                                "=",
-                                "\"Player Lives: \" + ToString(GlobalVariable(Player1_Lives))"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "TextObject::String"
-                              },
-                              "parameters": [
-                                "player1_health_text",
-                                "=",
-                                "\"Player Health: \" + ToString(PlayerOne_sprite.Variable(PlayerHealth))"
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [
-                            {
-                              "type": {
-                                "value": "VarGlobal"
-                              },
-                              "parameters": [
-                                "Player1_Lives",
-                                "<=",
-                                "0"
-                              ]
-                            }
-                          ],
-                          "actions": [
-                            {
-                              "type": {
-                                "value": "TextObject::String"
-                              },
-                              "parameters": [
-                                "player1_lives_text",
-                                "=",
-                                "\"Player Lives: \" + ToString(GlobalVariable(Player1_Lives))"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "SetGlobalVariableAsBoolean"
-                              },
-                              "parameters": [
-                                "Player1_GameOver",
-                                "True"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "SetGlobalVariableAsBoolean"
-                              },
-                              "parameters": [
-                                "Show_LeaderBoard",
-                                "True"
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Comment",
-              "color": {
-                "b": 109,
-                "g": 230,
-                "r": 255,
-                "textB": 0,
-                "textG": 0,
-                "textR": 0
-              },
-              "comment": "Enemy vs Bullet",
-              "comment2": ""
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "CollisionNP"
-                  },
-                  "parameters": [
-                    "EnemyGroup",
-                    "PlayerBullet",
-                    "",
-                    "",
-                    ""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "BuiltinCommonInstructions::Once"
-                  },
-                  "parameters": []
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "Delete"
-                  },
-                  "parameters": [
-                    "PlayerBullet",
-                    ""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "Create"
-                  },
-                  "parameters": [
-                    "",
-                    "BulletHole",
-                    "PlayerBullet.X()",
-                    "PlayerBullet.Y()",
-                    "\"Player Layer\""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ModVarObjet"
-                  },
-                  "parameters": [
-                    "TestEnemy_test",
-                    "EnemyHealth",
-                    "-",
-                    "1"
-                  ]
-                }
-              ],
-              "events": [
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "VarObjet"
-                      },
-                      "parameters": [
-                        "EnemyGroup",
-                        "EnemyHealth",
-                        "<=",
-                        "0"
-                      ]
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "Create"
-                      },
-                      "parameters": [
-                        "",
-                        "Explosion",
-                        "EnemyGroup.X()",
-                        "EnemyGroup.Y()",
-                        "\"Player Layer\""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "PlaySound"
-                      },
-                      "parameters": [
-                        "",
-                        "assets\\Audio\\explosion.wav",
-                        "",
-                        "30",
-                        "1"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "Delete"
-                      },
-                      "parameters": [
-                        "PlayerBullet",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "Delete"
-                      },
-                      "parameters": [
-                        "BulletHole",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "Delete"
-                      },
-                      "parameters": [
-                        "EnemyGroup",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "ModVarGlobal"
-                      },
-                      "parameters": [
-                        "test_enemyRemoved",
-                        "+",
-                        "1"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "TextObject::String"
-                      },
-                      "parameters": [
-                        "guiText",
-                        "=",
-                        "\"Enemy removed: \" + ToString(GlobalVariable(test_enemyRemoved))"
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [],
-              "actions": [
-                {
-                  "type": {
-                    "value": "MettreY"
-                  },
-                  "parameters": [
-                    "BulletHole",
-                    "+",
-                    "TimeDelta() * GlobalVariable(EnemyBasicSpeed)"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "Opacity"
-                  },
-                  "parameters": [
-                    "BulletHole",
-                    "-",
-                    "TimeDelta() * 600"
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [],
-              "actions": [
-                {
-                  "type": {
-                    "value": "MettreY"
-                  },
-                  "parameters": [
-                    "Explosion",
-                    "+",
-                    "TimeDelta() * GlobalVariable(EnemyBasicSpeed)"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "Opacity"
-                  },
-                  "parameters": [
-                    "Explosion",
-                    "-",
-                    "TimeDelta() * 1000"
                   ]
                 }
               ]
