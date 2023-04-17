@@ -23,7 +23,7 @@
     "author": "Zen Masters",
     "windowWidth": 720,
     "windowHeight": 1280,
-    "latestCompilationDirectory": "",
+    "latestCompilationDirectory": "C:\\Users\\masterfoo\\Desktop\\GDevelop projects\\1941\\build",
     "maxFPS": 60,
     "minFPS": 20,
     "verticalSync": false,
@@ -630,6 +630,12 @@
     },
     {
       "folded": true,
+      "name": "Player1_destroyed",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "folded": true,
       "name": "Player2_GameOver",
       "type": "boolean",
       "value": false
@@ -647,6 +653,12 @@
       "value": 0
     },
     {
+      "folded": true,
+      "name": "Player2_destroyed",
+      "type": "boolean",
+      "value": false
+    },
+    {
       "name": "test_enemyRemoved",
       "type": "number",
       "value": 0
@@ -656,15 +668,664 @@
       "name": "EnemyBasicSpeed",
       "type": "number",
       "value": 30
-    },
-    {
-      "folded": true,
-      "name": "numberOfPlayers",
-      "type": "number",
-      "value": 0
     }
   ],
   "layouts": [
+    {
+      "b": 209,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "THNK_32P2P",
+      "name": "THNK P2P",
+      "r": 209,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": true,
+      "title": "",
+      "v": 209,
+      "uiSettings": {
+        "grid": true,
+        "gridType": "rectangular",
+        "gridWidth": 32,
+        "gridHeight": 32,
+        "gridOffsetX": 0,
+        "gridOffsetY": 0,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": true,
+        "zoomFactor": 0.546875,
+        "windowMask": false
+      },
+      "objectsGroups": [],
+      "variables": [],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "ClientButton",
+          "persistentUuid": "ca7b724b-9808-42e9-bde4-391809667f2c",
+          "width": 0,
+          "x": 240,
+          "y": 810,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "ServerButton",
+          "persistentUuid": "b0177fde-c943-45dc-b579-546331d0552c",
+          "width": 0,
+          "x": 240,
+          "y": 450,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 50,
+          "layer": "",
+          "name": "ID_TextInput",
+          "persistentUuid": "fc7d379c-8991-4cca-9100-73197069946f",
+          "width": 400,
+          "x": 170,
+          "y": 730,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "DebugText",
+          "persistentUuid": "dad27f61-20aa-49b4-b438-13ca188e956c",
+          "width": 0,
+          "x": 320,
+          "y": 672,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "objects": [
+        {
+          "assetStoreId": "615de0316452630b9f4f6a39decc82e2449b82c1afd1ff24d6470dad2922177b",
+          "name": "ClientButton",
+          "tags": "",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 10,
+            "BottomPadding": 32,
+            "TopPadding": 16,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 32,
+              "height": 106,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Yellow Button_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 256
+            },
+            "Idle": {
+              "bottomMargin": 32,
+              "height": 106,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Yellow Button_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 256
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "Client",
+              "font": "",
+              "textAlignment": "center",
+              "characterSize": 60,
+              "color": {
+                "b": 42,
+                "g": 87,
+                "r": 139
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 106,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Yellow Button_Pressed.png",
+              "tiled": true,
+              "topMargin": 32,
+              "width": 256
+            }
+          }
+        },
+        {
+          "assetStoreId": "615de0316452630b9f4f6a39decc82e2449b82c1afd1ff24d6470dad2922177b",
+          "name": "ServerButton",
+          "tags": "",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 10,
+            "BottomPadding": 32,
+            "TopPadding": 16,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 32,
+              "height": 106,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Yellow Button_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 256
+            },
+            "Idle": {
+              "bottomMargin": 32,
+              "height": 106,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Yellow Button_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 256
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "Server",
+              "font": "",
+              "textAlignment": "center",
+              "characterSize": 60,
+              "color": {
+                "b": 42,
+                "g": 87,
+                "r": 139
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 106,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Yellow Button_Pressed.png",
+              "tiled": true,
+              "topMargin": 32,
+              "width": 256
+            }
+          }
+        },
+        {
+          "assetStoreId": "",
+          "name": "ID_TextInput",
+          "tags": "",
+          "type": "TextInput::TextInputObject",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "initialValue": "",
+            "placeholder": "ID",
+            "fontResourceName": "",
+            "fontSize": 30,
+            "inputType": "text",
+            "textColor": "0;0;0",
+            "fillColor": "255;255;255",
+            "fillOpacity": 255,
+            "borderColor": "0;0;0",
+            "borderOpacity": 255,
+            "borderWidth": 2,
+            "readOnly": false,
+            "disabled": false
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "DebugText",
+          "smoothed": true,
+          "tags": "",
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "DebugText",
+          "font": "",
+          "textAlignment": "left",
+          "characterSize": 20,
+          "color": {
+            "b": 0,
+            "g": 0,
+            "r": 0
+          }
+        }
+      ],
+      "events": [
+        {
+          "colorB": 228,
+          "colorG": 176,
+          "colorR": 74,
+          "creationTime": 0,
+          "name": "P2P",
+          "source": "",
+          "type": "BuiltinCommonInstructions::Group",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Use Custom Server",
+              "comment2": ""
+            },
+            {
+              "disabled": true,
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "DepartScene"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "P2P::UseOwnBroker"
+                  },
+                  "parameters": [
+                    "\"localhost\"",
+                    "9000",
+                    "\"/\"",
+                    "\"\"",
+                    "no"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Use Default Server",
+              "comment2": ""
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "DepartScene"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "P2P::UseDefaultBroker"
+                  },
+                  "parameters": []
+                }
+              ]
+            },
+            {
+              "colorB": 228,
+              "colorG": 176,
+              "colorR": 74,
+              "creationTime": 0,
+              "name": "Check for connection",
+              "source": "",
+              "type": "BuiltinCommonInstructions::Group",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 109,
+                    "g": 230,
+                    "r": 255,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
+                  },
+                  "comment": "When a peer is connected, confirm connection and switch to the game",
+                  "comment2": ""
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "P2P::OnConnection"
+                      },
+                      "parameters": []
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "P2P::SendToAll"
+                      },
+                      "parameters": [
+                        "\"connected\"",
+                        "\"\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 109,
+                    "g": 230,
+                    "r": 255,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
+                  },
+                  "comment": "Switch to the game once connection is confirmed",
+                  "comment2": ""
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "P2P::OnEvent"
+                      },
+                      "parameters": [
+                        "\"connected\"",
+                        "yes"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "P2P::SendToAll"
+                      },
+                      "parameters": [
+                        "\"connected\"",
+                        "\"\""
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": []
+            },
+            {
+              "colorB": 228,
+              "colorG": 176,
+              "colorR": 74,
+              "creationTime": 0,
+              "name": "Select Server or Client",
+              "source": "",
+              "type": "BuiltinCommonInstructions::Group",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                      },
+                      "parameters": [
+                        "ServerButton",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BuiltinCommonInstructions::Once"
+                      },
+                      "parameters": []
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "THNK_P2P::StartServer"
+                      },
+                      "parameters": [
+                        "",
+                        "\"Level 1\"",
+                        ""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                      },
+                      "parameters": [
+                        "ClientButton",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BuiltinCommonInstructions::Once"
+                      },
+                      "parameters": []
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "TextObject::String"
+                      },
+                      "parameters": [
+                        "DebugText",
+                        "=",
+                        "ID_TextInput.Text()"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "THNK_P2P::ConnectToServer"
+                      },
+                      "parameters": [
+                        "ID_TextInput.Text()",
+                        "ID_TextInput.Text()",
+                        ""
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": []
+            }
+          ],
+          "parameters": []
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 0,
+          "ambientLightColorG": 0,
+          "ambientLightColorR": 0,
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "name": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "behaviorsSharedData": []
+    },
+    {
+      "b": 209,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "THNK_32Local",
+      "name": "THNK Local",
+      "r": 209,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": true,
+      "title": "",
+      "v": 209,
+      "uiSettings": {
+        "grid": false,
+        "gridType": "rectangular",
+        "gridWidth": 32,
+        "gridHeight": 32,
+        "gridOffsetX": 0,
+        "gridOffsetY": 0,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": false,
+        "zoomFactor": 0.546875,
+        "windowMask": false
+      },
+      "objectsGroups": [],
+      "variables": [],
+      "instances": [],
+      "objects": [],
+      "events": [
+        {
+          "colorB": 228,
+          "colorG": 176,
+          "colorR": 74,
+          "creationTime": 0,
+          "name": "LAN",
+          "source": "",
+          "type": "BuiltinCommonInstructions::Group",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Local Connection",
+              "comment2": ""
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "DepartScene"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "THNK_Local::StartServer"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Level 1\"",
+                    "1",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ],
+          "parameters": []
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 0,
+          "ambientLightColorG": 0,
+          "ambientLightColorR": 0,
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "name": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "behaviorsSharedData": []
+    },
     {
       "b": 209,
       "disableInputWhenNotFocused": true,
@@ -685,7 +1346,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": true,
-        "zoomFactor": 0.3648163348258403,
+        "zoomFactor": 0.756731030020799,
         "windowMask": false
       },
       "objectsGroups": [
@@ -1061,13 +1722,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 3100,
+          "height": 2300,
           "layer": "",
           "name": "RedBar",
           "persistentUuid": "7e3d54d9-add1-48a2-8cdc-d309128596fc",
           "width": 27,
           "x": 1223,
-          "y": -1350,
+          "y": -550,
           "zOrder": 99,
           "numberProperties": [],
           "stringProperties": [],
@@ -1076,13 +1737,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 3100,
+          "height": 2300,
           "layer": "",
           "name": "RedBar",
           "persistentUuid": "9be809a2-c23f-4d4d-987f-a5930f2193ce",
           "width": 27,
           "x": -550,
-          "y": -1350,
+          "y": -550,
           "zOrder": 99,
           "numberProperties": [],
           "stringProperties": [],
@@ -1097,7 +1758,7 @@
           "persistentUuid": "c2698d4e-3490-4f4b-8a4d-d97bac894ea6",
           "width": 1800,
           "x": -550,
-          "y": -1350,
+          "y": -569,
           "zOrder": 99,
           "numberProperties": [],
           "stringProperties": [],
@@ -1206,7 +1867,7 @@
           "angle": 0,
           "customSize": true,
           "height": 13,
-          "layer": "",
+          "layer": "GUI Layer",
           "name": "Bar_right",
           "persistentUuid": "462e2236-7c27-4141-9564-f6e3da2ce2e9",
           "width": 364,
@@ -1221,7 +1882,7 @@
           "angle": 0,
           "customSize": true,
           "height": 13,
-          "layer": "",
+          "layer": "GUI Layer",
           "name": "Bar_right",
           "persistentUuid": "b8d614d8-099f-4cff-8247-e3a01ba6ecdf",
           "width": 345,
@@ -1236,7 +1897,7 @@
           "angle": 0,
           "customSize": false,
           "height": 0,
-          "layer": "GUI Layer",
+          "layer": "GUI Icons Layer",
           "name": "Player1_lives_sprite",
           "persistentUuid": "1af38ad5-22fd-4ca5-8f71-39b4d7315b7c",
           "width": 0,
@@ -1251,7 +1912,7 @@
           "angle": 0,
           "customSize": false,
           "height": 0,
-          "layer": "GUI Layer",
+          "layer": "GUI Icons Layer",
           "name": "Player2_lives_sprite",
           "persistentUuid": "c427af2f-0ac3-4568-bbf5-701945210621",
           "width": 0,
@@ -1300,8 +1961,8 @@
           "name": "TestEnemy_test",
           "persistentUuid": "a0fa9510-437d-43ff-8743-9023d15803a0",
           "width": 0,
-          "x": 323,
-          "y": 700,
+          "x": 327,
+          "y": 750,
           "zOrder": 103,
           "numberProperties": [],
           "stringProperties": [],
@@ -1361,7 +2022,7 @@
           "persistentUuid": "2943ccb9-38e1-4da2-a622-6af9d8c87406",
           "width": 0,
           "x": 427,
-          "y": 800,
+          "y": 750,
           "zOrder": 103,
           "numberProperties": [],
           "stringProperties": [],
@@ -1386,7 +2047,7 @@
           "angle": 0,
           "customSize": true,
           "height": 18,
-          "layer": "",
+          "layer": "GUI Layer",
           "name": "Player2_healthBar",
           "persistentUuid": "35ecce4e-edaa-4e3a-b053-4ae4d90858a8",
           "width": 180,
@@ -1431,13 +2092,118 @@
           "angle": 0,
           "customSize": true,
           "height": 18,
-          "layer": "",
+          "layer": "GUI Layer",
           "name": "Player1_healthBar",
           "persistentUuid": "f9906eea-4cb8-427e-96ed-cbaafc310bde",
           "width": 180,
           "x": 461,
           "y": 1179,
           "zOrder": 121,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "TestEnemy_test",
+          "persistentUuid": "d6ce31fc-b2ab-49b0-ab18-2503e270a554",
+          "width": 0,
+          "x": 173,
+          "y": 750,
+          "zOrder": 103,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "TestEnemy_test",
+          "persistentUuid": "3efc7c20-90b5-47d6-ad02-dbb1ddb8ada8",
+          "width": 0,
+          "x": 177,
+          "y": 350,
+          "zOrder": 103,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "TestEnemy_test",
+          "persistentUuid": "93670c35-a70a-416a-965b-ab40574ca43d",
+          "width": 0,
+          "x": 227,
+          "y": 350,
+          "zOrder": 103,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "TestEnemy_test",
+          "persistentUuid": "c071388d-2ed7-4d6e-9c9f-39e51532b903",
+          "width": 0,
+          "x": 423,
+          "y": 350,
+          "zOrder": 103,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "TestEnemy_test",
+          "persistentUuid": "ece9b631-dc9f-4f0c-8522-0cc0caf9390f",
+          "width": 0,
+          "x": 323,
+          "y": 350,
+          "zOrder": 103,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "TestEnemy_test",
+          "persistentUuid": "918194d8-c1a3-4c6d-81eb-28b777c5f639",
+          "width": 0,
+          "x": 373,
+          "y": 350,
+          "zOrder": 103,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "TestEnemy_test",
+          "persistentUuid": "cfc8763d-ce50-42f3-b17e-74a437e6c020",
+          "width": 0,
+          "x": 477,
+          "y": 350,
+          "zOrder": 103,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -4144,7 +4910,6 @@
                               ]
                             },
                             {
-                              "folded": true,
                               "type": "BuiltinCommonInstructions::Standard",
                               "conditions": [
                                 {
@@ -4262,51 +5027,33 @@
                               "conditions": [
                                 {
                                   "type": {
-                                    "value": "THNK::UseLinkedObjects"
+                                    "value": "VarObjet"
                                   },
                                   "parameters": [
-                                    "",
                                     "Player",
-                                    ""
+                                    "PlayerID",
+                                    "=",
+                                    "2"
                                   ]
                                 }
                               ],
-                              "actions": [],
-                              "events": [
+                              "actions": [
                                 {
-                                  "type": "BuiltinCommonInstructions::Standard",
-                                  "conditions": [
-                                    {
-                                      "type": {
-                                        "value": "VarObjet"
-                                      },
-                                      "parameters": [
-                                        "Player",
-                                        "PlayerID",
-                                        "=",
-                                        "2"
-                                      ]
-                                    }
-                                  ],
-                                  "actions": [
-                                    {
-                                      "type": {
-                                        "value": "Delete"
-                                      },
-                                      "parameters": [
-                                        "Player",
-                                        ""
-                                      ]
-                                    },
-                                    {
-                                      "type": {
-                                        "value": "Delete"
-                                      },
-                                      "parameters": [
-                                        "PlayerTwo_sprite",
-                                        ""
-                                      ]
-                                    }
+                                  "type": {
+                                    "value": "Delete"
+                                  },
+                                  "parameters": [
+                                    "Player",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Delete"
+                                  },
+                                  "parameters": [
+                                    "PlayerTwo_sprite",
+                                    ""
                                   ]
                                 }
                               ]
@@ -4983,7 +5730,6 @@
                           "comment2": ""
                         },
                         {
-                          "folded": true,
                           "type": "BuiltinCommonInstructions::Standard",
                           "conditions": [
                             {
@@ -5154,45 +5900,27 @@
                           "conditions": [
                             {
                               "type": {
-                                "value": "THNK::UseLinkedObjects"
+                                "value": "VarObjet"
                               },
                               "parameters": [
-                                "",
                                 "Player",
-                                ""
+                                "PlayerID",
+                                "=",
+                                "2"
                               ]
                             }
                           ],
-                          "actions": [],
-                          "events": [
+                          "actions": [
                             {
-                              "type": "BuiltinCommonInstructions::Standard",
-                              "conditions": [
-                                {
-                                  "type": {
-                                    "value": "VarObjet"
-                                  },
-                                  "parameters": [
-                                    "Player",
-                                    "PlayerID",
-                                    "=",
-                                    "2"
-                                  ]
-                                }
-                              ],
-                              "actions": [
-                                {
-                                  "type": {
-                                    "value": "MettreXY"
-                                  },
-                                  "parameters": [
-                                    "PlayerTwo_sprite",
-                                    "=",
-                                    "Player.X()",
-                                    "=",
-                                    "Player.Y()"
-                                  ]
-                                }
+                              "type": {
+                                "value": "MettreXY"
+                              },
+                              "parameters": [
+                                "PlayerTwo_sprite",
+                                "=",
+                                "Player.X()",
+                                "=",
+                                "Player.Y()"
                               ]
                             }
                           ]
@@ -5792,114 +6520,113 @@
                                   ]
                                 }
                               ],
-                              "actions": [
-                                {
-                                  "type": {
-                                    "value": "ModVarObjet"
-                                  },
-                                  "parameters": [
-                                    "EnemyGroup",
-                                    "EnemyHealth",
-                                    "=",
-                                    "0"
-                                  ]
-                                },
-                                {
-                                  "type": {
-                                    "value": "Create"
-                                  },
-                                  "parameters": [
-                                    "",
-                                    "Explosion",
-                                    "EnemyGroup.X()",
-                                    "EnemyGroup.Y()",
-                                    "\"Player Layer\""
-                                  ]
-                                },
-                                {
-                                  "type": {
-                                    "value": "PlaySound"
-                                  },
-                                  "parameters": [
-                                    "",
-                                    "assets\\Audio\\explosion.wav",
-                                    "",
-                                    "10",
-                                    "1"
-                                  ]
-                                },
-                                {
-                                  "type": {
-                                    "value": "Delete"
-                                  },
-                                  "parameters": [
-                                    "EnemyGroup",
-                                    ""
-                                  ]
-                                },
-                                {
-                                  "type": {
-                                    "value": "ModVarGlobal"
-                                  },
-                                  "parameters": [
-                                    "test_enemyRemoved",
-                                    "+",
-                                    "1"
-                                  ]
-                                },
-                                {
-                                  "type": {
-                                    "value": "TextObject::String"
-                                  },
-                                  "parameters": [
-                                    "guiText_enemyRemoved",
-                                    "=",
-                                    "\"Enemy removed: \" + ToString(GlobalVariable(test_enemyRemoved))"
-                                  ]
-                                }
-                              ],
+                              "actions": [],
                               "events": [
                                 {
-                                  "type": "BuiltinCommonInstructions::Standard",
-                                  "conditions": [
-                                    {
-                                      "type": {
-                                        "value": "THNK::UseLinkedObjects"
-                                      },
-                                      "parameters": [
-                                        "",
-                                        "Player",
-                                        ""
-                                      ]
-                                    }
-                                  ],
-                                  "actions": [],
+                                  "colorB": 228,
+                                  "colorG": 176,
+                                  "colorR": 74,
+                                  "creationTime": 0,
+                                  "name": "Player 1 (server)",
+                                  "source": "",
+                                  "type": "BuiltinCommonInstructions::Group",
                                   "events": [
                                     {
-                                      "colorB": 228,
-                                      "colorG": 176,
-                                      "colorR": 74,
-                                      "creationTime": 0,
-                                      "name": "Player 1 (server)",
-                                      "source": "",
-                                      "type": "BuiltinCommonInstructions::Group",
+                                      "type": "BuiltinCommonInstructions::Standard",
+                                      "conditions": [
+                                        {
+                                          "type": {
+                                            "value": "VarObjet"
+                                          },
+                                          "parameters": [
+                                            "Player",
+                                            "PlayerID",
+                                            "=",
+                                            "3"
+                                          ]
+                                        }
+                                      ],
+                                      "actions": [],
                                       "events": [
                                         {
                                           "type": "BuiltinCommonInstructions::Standard",
                                           "conditions": [
                                             {
                                               "type": {
-                                                "value": "VarObjet"
+                                                "value": "GlobalVariableAsBoolean"
                                               },
                                               "parameters": [
-                                                "Player",
-                                                "PlayerID",
-                                                "=",
-                                                "3"
+                                                "Player1_destroyed",
+                                                ""
                                               ]
                                             }
                                           ],
-                                          "actions": [],
+                                          "actions": [
+                                            {
+                                              "type": {
+                                                "value": "ModVarObjet"
+                                              },
+                                              "parameters": [
+                                                "EnemyGroup",
+                                                "EnemyHealth",
+                                                "=",
+                                                "0"
+                                              ]
+                                            },
+                                            {
+                                              "type": {
+                                                "value": "Create"
+                                              },
+                                              "parameters": [
+                                                "",
+                                                "Explosion",
+                                                "EnemyGroup.X()",
+                                                "EnemyGroup.Y()",
+                                                "\"Player Layer\""
+                                              ]
+                                            },
+                                            {
+                                              "type": {
+                                                "value": "PlaySound"
+                                              },
+                                              "parameters": [
+                                                "",
+                                                "assets\\Audio\\explosion.wav",
+                                                "",
+                                                "10",
+                                                "1"
+                                              ]
+                                            },
+                                            {
+                                              "type": {
+                                                "value": "Delete"
+                                              },
+                                              "parameters": [
+                                                "EnemyGroup",
+                                                ""
+                                              ]
+                                            },
+                                            {
+                                              "type": {
+                                                "value": "ModVarGlobal"
+                                              },
+                                              "parameters": [
+                                                "test_enemyRemoved",
+                                                "+",
+                                                "1"
+                                              ]
+                                            },
+                                            {
+                                              "type": {
+                                                "value": "TextObject::String"
+                                              },
+                                              "parameters": [
+                                                "guiText_enemyRemoved",
+                                                "=",
+                                                "\"Enemy removed: \" + ToString(GlobalVariable(test_enemyRemoved))"
+                                              ]
+                                            }
+                                          ],
                                           "events": [
                                             {
                                               "type": "BuiltinCommonInstructions::Standard",
@@ -6012,6 +6739,15 @@
                                                         "PlayerOne",
                                                         "\"Player1DestroyedTimer\""
                                                       ]
+                                                    },
+                                                    {
+                                                      "type": {
+                                                        "value": "SetGlobalVariableAsBoolean"
+                                                      },
+                                                      "parameters": [
+                                                        "Player1_destroyed",
+                                                        "True"
+                                                      ]
                                                     }
                                                   ],
                                                   "events": [
@@ -6072,34 +6808,116 @@
                                             }
                                           ]
                                         }
-                                      ],
-                                      "parameters": []
-                                    },
+                                      ]
+                                    }
+                                  ],
+                                  "parameters": []
+                                },
+                                {
+                                  "colorB": 228,
+                                  "colorG": 176,
+                                  "colorR": 74,
+                                  "creationTime": 0,
+                                  "name": "Player 2",
+                                  "source": "",
+                                  "type": "BuiltinCommonInstructions::Group",
+                                  "events": [
                                     {
-                                      "colorB": 228,
-                                      "colorG": 176,
-                                      "colorR": 74,
-                                      "creationTime": 0,
-                                      "name": "Player 2",
-                                      "source": "",
-                                      "type": "BuiltinCommonInstructions::Group",
+                                      "type": "BuiltinCommonInstructions::Standard",
+                                      "conditions": [
+                                        {
+                                          "type": {
+                                            "value": "VarObjet"
+                                          },
+                                          "parameters": [
+                                            "Player",
+                                            "PlayerID",
+                                            "=",
+                                            "2"
+                                          ]
+                                        }
+                                      ],
+                                      "actions": [],
                                       "events": [
                                         {
                                           "type": "BuiltinCommonInstructions::Standard",
                                           "conditions": [
                                             {
                                               "type": {
-                                                "value": "VarObjet"
+                                                "value": "GlobalVariableAsBoolean"
                                               },
                                               "parameters": [
-                                                "Player",
-                                                "PlayerID",
-                                                "=",
-                                                "2"
+                                                "Player2_destroyed",
+                                                ""
                                               ]
                                             }
                                           ],
-                                          "actions": [],
+                                          "actions": [
+                                            {
+                                              "type": {
+                                                "value": "ModVarObjet"
+                                              },
+                                              "parameters": [
+                                                "EnemyGroup",
+                                                "EnemyHealth",
+                                                "=",
+                                                "0"
+                                              ]
+                                            },
+                                            {
+                                              "type": {
+                                                "value": "Create"
+                                              },
+                                              "parameters": [
+                                                "",
+                                                "Explosion",
+                                                "EnemyGroup.X()",
+                                                "EnemyGroup.Y()",
+                                                "\"Player Layer\""
+                                              ]
+                                            },
+                                            {
+                                              "type": {
+                                                "value": "PlaySound"
+                                              },
+                                              "parameters": [
+                                                "",
+                                                "assets\\Audio\\explosion.wav",
+                                                "",
+                                                "10",
+                                                "1"
+                                              ]
+                                            },
+                                            {
+                                              "type": {
+                                                "value": "Delete"
+                                              },
+                                              "parameters": [
+                                                "EnemyGroup",
+                                                ""
+                                              ]
+                                            },
+                                            {
+                                              "type": {
+                                                "value": "ModVarGlobal"
+                                              },
+                                              "parameters": [
+                                                "test_enemyRemoved",
+                                                "+",
+                                                "1"
+                                              ]
+                                            },
+                                            {
+                                              "type": {
+                                                "value": "TextObject::String"
+                                              },
+                                              "parameters": [
+                                                "guiText_enemyRemoved",
+                                                "=",
+                                                "\"Enemy removed: \" + ToString(GlobalVariable(test_enemyRemoved))"
+                                              ]
+                                            }
+                                          ],
                                           "events": [
                                             {
                                               "type": "BuiltinCommonInstructions::Standard",
@@ -6212,6 +7030,15 @@
                                                         "PlayerOne",
                                                         "\"Player2DestroyedTimer\""
                                                       ]
+                                                    },
+                                                    {
+                                                      "type": {
+                                                        "value": "SetGlobalVariableAsBoolean"
+                                                      },
+                                                      "parameters": [
+                                                        "Player2_destroyed",
+                                                        "True"
+                                                      ]
                                                     }
                                                   ],
                                                   "events": [
@@ -6272,10 +7099,10 @@
                                             }
                                           ]
                                         }
-                                      ],
-                                      "parameters": []
+                                      ]
                                     }
-                                  ]
+                                  ],
+                                  "parameters": []
                                 }
                               ]
                             }
@@ -6382,42 +7209,161 @@
                       "type": "BuiltinCommonInstructions::Group",
                       "events": [
                         {
-                          "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [
+                          "colorB": 228,
+                          "colorG": 176,
+                          "colorR": 74,
+                          "creationTime": 0,
+                          "name": "Player 1 (server)",
+                          "source": "",
+                          "type": "BuiltinCommonInstructions::Group",
+                          "events": [
                             {
-                              "type": {
-                                "value": "THNK::UseLinkedObjects"
-                              },
-                              "parameters": [
-                                "",
-                                "Player",
-                                ""
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "VarObjet"
+                                  },
+                                  "parameters": [
+                                    "Player",
+                                    "PlayerID",
+                                    "=",
+                                    "3"
+                                  ]
+                                }
+                              ],
+                              "actions": [],
+                              "events": [
+                                {
+                                  "type": "BuiltinCommonInstructions::Standard",
+                                  "conditions": [
+                                    {
+                                      "type": {
+                                        "value": "GlobalVariableAsBoolean"
+                                      },
+                                      "parameters": [
+                                        "Player1_GameOver",
+                                        "False"
+                                      ]
+                                    }
+                                  ],
+                                  "actions": [],
+                                  "events": [
+                                    {
+                                      "type": "BuiltinCommonInstructions::Standard",
+                                      "conditions": [
+                                        {
+                                          "type": {
+                                            "value": "CompareTimer"
+                                          },
+                                          "parameters": [
+                                            "PlayerOne",
+                                            "\"Player1DestroyedTimer\"",
+                                            ">=",
+                                            "2"
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "BuiltinCommonInstructions::Once"
+                                          },
+                                          "parameters": []
+                                        }
+                                      ],
+                                      "actions": [
+                                        {
+                                          "type": {
+                                            "value": "ModVarObjet"
+                                          },
+                                          "parameters": [
+                                            "Player",
+                                            "PlayerHealth",
+                                            "=",
+                                            "4"
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "ChangeWidth"
+                                          },
+                                          "parameters": [
+                                            "Player1_healthBar",
+                                            "=",
+                                            "180"
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "Montre"
+                                          },
+                                          "parameters": [
+                                            "PlayerOne_sprite",
+                                            ""
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "RemoveTimer"
+                                          },
+                                          "parameters": [
+                                            "",
+                                            "\"Player1DestroyedTimer\""
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "SetGlobalVariableAsBoolean"
+                                          },
+                                          "parameters": [
+                                            "Player1_destroyed",
+                                            "False"
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
                               ]
                             }
                           ],
-                          "actions": [],
+                          "parameters": []
+                        },
+                        {
+                          "colorB": 228,
+                          "colorG": 176,
+                          "colorR": 74,
+                          "creationTime": 0,
+                          "name": "Player 2",
+                          "source": "",
+                          "type": "BuiltinCommonInstructions::Group",
                           "events": [
                             {
-                              "colorB": 228,
-                              "colorG": 176,
-                              "colorR": 74,
-                              "creationTime": 0,
-                              "name": "Player 1 (server)",
-                              "source": "",
-                              "type": "BuiltinCommonInstructions::Group",
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "VarObjet"
+                                  },
+                                  "parameters": [
+                                    "Player",
+                                    "PlayerID",
+                                    "=",
+                                    "2"
+                                  ]
+                                }
+                              ],
+                              "actions": [],
                               "events": [
                                 {
                                   "type": "BuiltinCommonInstructions::Standard",
                                   "conditions": [
                                     {
                                       "type": {
-                                        "value": "VarObjet"
+                                        "value": "GlobalVariableAsBoolean"
                                       },
                                       "parameters": [
-                                        "Player",
-                                        "PlayerID",
-                                        "=",
-                                        "3"
+                                        "Player2_GameOver",
+                                        "False"
                                       ]
                                     }
                                   ],
@@ -6428,198 +7374,79 @@
                                       "conditions": [
                                         {
                                           "type": {
-                                            "value": "GlobalVariableAsBoolean"
+                                            "value": "CompareTimer"
                                           },
                                           "parameters": [
-                                            "Player1_GameOver",
-                                            "False"
+                                            "PlayerOne",
+                                            "\"Player2DestroyedTimer\"",
+                                            ">=",
+                                            "2"
                                           ]
-                                        }
-                                      ],
-                                      "actions": [],
-                                      "events": [
-                                        {
-                                          "type": "BuiltinCommonInstructions::Standard",
-                                          "conditions": [
-                                            {
-                                              "type": {
-                                                "value": "CompareTimer"
-                                              },
-                                              "parameters": [
-                                                "PlayerOne",
-                                                "\"Player1DestroyedTimer\"",
-                                                ">=",
-                                                "2"
-                                              ]
-                                            },
-                                            {
-                                              "type": {
-                                                "value": "BuiltinCommonInstructions::Once"
-                                              },
-                                              "parameters": []
-                                            }
-                                          ],
-                                          "actions": [
-                                            {
-                                              "type": {
-                                                "value": "ModVarObjet"
-                                              },
-                                              "parameters": [
-                                                "Player",
-                                                "PlayerHealth",
-                                                "=",
-                                                "4"
-                                              ]
-                                            },
-                                            {
-                                              "type": {
-                                                "value": "ChangeWidth"
-                                              },
-                                              "parameters": [
-                                                "Player1_healthBar",
-                                                "=",
-                                                "180"
-                                              ]
-                                            },
-                                            {
-                                              "type": {
-                                                "value": "Montre"
-                                              },
-                                              "parameters": [
-                                                "PlayerOne_sprite",
-                                                ""
-                                              ]
-                                            },
-                                            {
-                                              "type": {
-                                                "value": "RemoveTimer"
-                                              },
-                                              "parameters": [
-                                                "",
-                                                "\"Player1DestroyedTimer\""
-                                              ]
-                                            }
-                                          ]
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "parameters": []
-                            },
-                            {
-                              "colorB": 228,
-                              "colorG": 176,
-                              "colorR": 74,
-                              "creationTime": 0,
-                              "name": "Player 2",
-                              "source": "",
-                              "type": "BuiltinCommonInstructions::Group",
-                              "events": [
-                                {
-                                  "type": "BuiltinCommonInstructions::Standard",
-                                  "conditions": [
-                                    {
-                                      "type": {
-                                        "value": "VarObjet"
-                                      },
-                                      "parameters": [
-                                        "Player",
-                                        "PlayerID",
-                                        "=",
-                                        "2"
-                                      ]
-                                    }
-                                  ],
-                                  "actions": [],
-                                  "events": [
-                                    {
-                                      "type": "BuiltinCommonInstructions::Standard",
-                                      "conditions": [
+                                        },
                                         {
                                           "type": {
-                                            "value": "GlobalVariableAsBoolean"
+                                            "value": "BuiltinCommonInstructions::Once"
                                           },
-                                          "parameters": [
-                                            "Player2_GameOver",
-                                            "False"
-                                          ]
+                                          "parameters": []
                                         }
                                       ],
-                                      "actions": [],
-                                      "events": [
+                                      "actions": [
                                         {
-                                          "type": "BuiltinCommonInstructions::Standard",
-                                          "conditions": [
-                                            {
-                                              "type": {
-                                                "value": "CompareTimer"
-                                              },
-                                              "parameters": [
-                                                "PlayerOne",
-                                                "\"Player2DestroyedTimer\"",
-                                                ">=",
-                                                "2"
-                                              ]
-                                            },
-                                            {
-                                              "type": {
-                                                "value": "BuiltinCommonInstructions::Once"
-                                              },
-                                              "parameters": []
-                                            }
-                                          ],
-                                          "actions": [
-                                            {
-                                              "type": {
-                                                "value": "ModVarObjet"
-                                              },
-                                              "parameters": [
-                                                "Player",
-                                                "PlayerHealth",
-                                                "=",
-                                                "4"
-                                              ]
-                                            },
-                                            {
-                                              "type": {
-                                                "value": "ChangeWidth"
-                                              },
-                                              "parameters": [
-                                                "Player2_healthBar",
-                                                "=",
-                                                "180"
-                                              ]
-                                            },
-                                            {
-                                              "type": {
-                                                "value": "Montre"
-                                              },
-                                              "parameters": [
-                                                "PlayerTwo_sprite",
-                                                ""
-                                              ]
-                                            },
-                                            {
-                                              "type": {
-                                                "value": "RemoveTimer"
-                                              },
-                                              "parameters": [
-                                                "",
-                                                "\"Player2DestroyedTimer\""
-                                              ]
-                                            }
+                                          "type": {
+                                            "value": "ModVarObjet"
+                                          },
+                                          "parameters": [
+                                            "Player",
+                                            "PlayerHealth",
+                                            "=",
+                                            "4"
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "ChangeWidth"
+                                          },
+                                          "parameters": [
+                                            "Player2_healthBar",
+                                            "=",
+                                            "180"
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "Montre"
+                                          },
+                                          "parameters": [
+                                            "PlayerTwo_sprite",
+                                            ""
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "RemoveTimer"
+                                          },
+                                          "parameters": [
+                                            "",
+                                            "\"Player2DestroyedTimer\""
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "SetGlobalVariableAsBoolean"
+                                          },
+                                          "parameters": [
+                                            "Player2_destroyed",
+                                            "False"
                                           ]
                                         }
                                       ]
                                     }
                                   ]
                                 }
-                              ],
-                              "parameters": []
+                              ]
                             }
-                          ]
+                          ],
+                          "parameters": []
                         }
                       ],
                       "parameters": []
@@ -7310,557 +8137,8 @@
     {
       "b": 209,
       "disableInputWhenNotFocused": true,
-      "mangledName": "THNK_32P2P",
-      "name": "THNK P2P",
-      "r": 209,
-      "standardSortMethod": true,
-      "stopSoundsOnStartup": true,
-      "title": "",
-      "v": 209,
-      "uiSettings": {
-        "grid": true,
-        "gridType": "rectangular",
-        "gridWidth": 32,
-        "gridHeight": 32,
-        "gridOffsetX": 0,
-        "gridOffsetY": 0,
-        "gridColor": 10401023,
-        "gridAlpha": 0.8,
-        "snap": true,
-        "zoomFactor": 0.546875,
-        "windowMask": false
-      },
-      "objectsGroups": [],
-      "variables": [],
-      "instances": [
-        {
-          "angle": 0,
-          "customSize": false,
-          "height": 0,
-          "layer": "",
-          "name": "ClientButton",
-          "persistentUuid": "ca7b724b-9808-42e9-bde4-391809667f2c",
-          "width": 0,
-          "x": 240,
-          "y": 810,
-          "zOrder": 1,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": false,
-          "height": 0,
-          "layer": "",
-          "name": "ServerButton",
-          "persistentUuid": "b0177fde-c943-45dc-b579-546331d0552c",
-          "width": 0,
-          "x": 240,
-          "y": 450,
-          "zOrder": 2,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 50,
-          "layer": "",
-          "name": "ID_TextInput",
-          "persistentUuid": "fc7d379c-8991-4cca-9100-73197069946f",
-          "width": 400,
-          "x": 170,
-          "y": 730,
-          "zOrder": 3,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": false,
-          "height": 0,
-          "layer": "",
-          "name": "DebugText",
-          "persistentUuid": "dad27f61-20aa-49b4-b438-13ca188e956c",
-          "width": 0,
-          "x": 320,
-          "y": 672,
-          "zOrder": 4,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        }
-      ],
-      "objects": [
-        {
-          "assetStoreId": "615de0316452630b9f4f6a39decc82e2449b82c1afd1ff24d6470dad2922177b",
-          "name": "ClientButton",
-          "tags": "",
-          "type": "PanelSpriteButton::PanelSpriteButton",
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "content": {
-            "LeftPadding": 16,
-            "RightPadding": 16,
-            "PressedLabelOffsetY": 10,
-            "BottomPadding": 32,
-            "TopPadding": 16,
-            "HoveredFadeOutDuration": 0.25
-          },
-          "childrenContent": {
-            "Hovered": {
-              "bottomMargin": 32,
-              "height": 106,
-              "leftMargin": 16,
-              "rightMargin": 16,
-              "texture": "Yellow Button_Hovered.png",
-              "tiled": true,
-              "topMargin": 16,
-              "width": 256
-            },
-            "Idle": {
-              "bottomMargin": 32,
-              "height": 106,
-              "leftMargin": 16,
-              "rightMargin": 16,
-              "texture": "Yellow Button_Idle.png",
-              "tiled": true,
-              "topMargin": 16,
-              "width": 256
-            },
-            "Label": {
-              "bold": false,
-              "italic": false,
-              "smoothed": true,
-              "underlined": false,
-              "string": "Client",
-              "font": "",
-              "textAlignment": "center",
-              "characterSize": 60,
-              "color": {
-                "b": 42,
-                "g": 87,
-                "r": 139
-              }
-            },
-            "Pressed": {
-              "bottomMargin": 16,
-              "height": 106,
-              "leftMargin": 16,
-              "rightMargin": 16,
-              "texture": "Yellow Button_Pressed.png",
-              "tiled": true,
-              "topMargin": 32,
-              "width": 256
-            }
-          }
-        },
-        {
-          "assetStoreId": "615de0316452630b9f4f6a39decc82e2449b82c1afd1ff24d6470dad2922177b",
-          "name": "ServerButton",
-          "tags": "",
-          "type": "PanelSpriteButton::PanelSpriteButton",
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "content": {
-            "LeftPadding": 16,
-            "RightPadding": 16,
-            "PressedLabelOffsetY": 10,
-            "BottomPadding": 32,
-            "TopPadding": 16,
-            "HoveredFadeOutDuration": 0.25
-          },
-          "childrenContent": {
-            "Hovered": {
-              "bottomMargin": 32,
-              "height": 106,
-              "leftMargin": 16,
-              "rightMargin": 16,
-              "texture": "Yellow Button_Hovered.png",
-              "tiled": true,
-              "topMargin": 16,
-              "width": 256
-            },
-            "Idle": {
-              "bottomMargin": 32,
-              "height": 106,
-              "leftMargin": 16,
-              "rightMargin": 16,
-              "texture": "Yellow Button_Idle.png",
-              "tiled": true,
-              "topMargin": 16,
-              "width": 256
-            },
-            "Label": {
-              "bold": false,
-              "italic": false,
-              "smoothed": true,
-              "underlined": false,
-              "string": "Server",
-              "font": "",
-              "textAlignment": "center",
-              "characterSize": 60,
-              "color": {
-                "b": 42,
-                "g": 87,
-                "r": 139
-              }
-            },
-            "Pressed": {
-              "bottomMargin": 16,
-              "height": 106,
-              "leftMargin": 16,
-              "rightMargin": 16,
-              "texture": "Yellow Button_Pressed.png",
-              "tiled": true,
-              "topMargin": 32,
-              "width": 256
-            }
-          }
-        },
-        {
-          "assetStoreId": "",
-          "name": "ID_TextInput",
-          "tags": "",
-          "type": "TextInput::TextInputObject",
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "content": {
-            "initialValue": "",
-            "placeholder": "ID",
-            "fontResourceName": "",
-            "fontSize": 30,
-            "inputType": "text",
-            "textColor": "0;0;0",
-            "fillColor": "255;255;255",
-            "fillOpacity": 255,
-            "borderColor": "0;0;0",
-            "borderOpacity": 255,
-            "borderWidth": 2,
-            "readOnly": false,
-            "disabled": false
-          }
-        },
-        {
-          "assetStoreId": "",
-          "bold": false,
-          "italic": false,
-          "name": "DebugText",
-          "smoothed": true,
-          "tags": "",
-          "type": "TextObject::Text",
-          "underlined": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "string": "DebugText",
-          "font": "",
-          "textAlignment": "left",
-          "characterSize": 20,
-          "color": {
-            "b": 0,
-            "g": 0,
-            "r": 0
-          }
-        }
-      ],
-      "events": [
-        {
-          "colorB": 228,
-          "colorG": 176,
-          "colorR": 74,
-          "creationTime": 0,
-          "name": "P2P",
-          "source": "",
-          "type": "BuiltinCommonInstructions::Group",
-          "events": [
-            {
-              "type": "BuiltinCommonInstructions::Comment",
-              "color": {
-                "b": 109,
-                "g": 230,
-                "r": 255,
-                "textB": 0,
-                "textG": 0,
-                "textR": 0
-              },
-              "comment": "Use Custom Server",
-              "comment2": ""
-            },
-            {
-              "disabled": true,
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "DepartScene"
-                  },
-                  "parameters": [
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "P2P::UseOwnBroker"
-                  },
-                  "parameters": [
-                    "\"localhost\"",
-                    "9000",
-                    "\"/\"",
-                    "\"\"",
-                    "no"
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Comment",
-              "color": {
-                "b": 109,
-                "g": 230,
-                "r": 255,
-                "textB": 0,
-                "textG": 0,
-                "textR": 0
-              },
-              "comment": "Use Default Server",
-              "comment2": ""
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "DepartScene"
-                  },
-                  "parameters": [
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "P2P::UseDefaultBroker"
-                  },
-                  "parameters": []
-                }
-              ]
-            },
-            {
-              "colorB": 228,
-              "colorG": 176,
-              "colorR": 74,
-              "creationTime": 0,
-              "name": "Check for connection",
-              "source": "",
-              "type": "BuiltinCommonInstructions::Group",
-              "events": [
-                {
-                  "type": "BuiltinCommonInstructions::Comment",
-                  "color": {
-                    "b": 109,
-                    "g": 230,
-                    "r": 255,
-                    "textB": 0,
-                    "textG": 0,
-                    "textR": 0
-                  },
-                  "comment": "When a peer is connected, confirm connection and switch to the game",
-                  "comment2": ""
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "P2P::OnConnection"
-                      },
-                      "parameters": []
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "P2P::SendToAll"
-                      },
-                      "parameters": [
-                        "\"connected\"",
-                        "\"\""
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Comment",
-                  "color": {
-                    "b": 109,
-                    "g": 230,
-                    "r": 255,
-                    "textB": 0,
-                    "textG": 0,
-                    "textR": 0
-                  },
-                  "comment": "Switch to the game once connection is confirmed",
-                  "comment2": ""
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "P2P::OnEvent"
-                      },
-                      "parameters": [
-                        "\"connected\"",
-                        "yes"
-                      ]
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "P2P::SendToAll"
-                      },
-                      "parameters": [
-                        "\"connected\"",
-                        "\"\""
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "parameters": []
-            },
-            {
-              "colorB": 228,
-              "colorG": 176,
-              "colorR": 74,
-              "creationTime": 0,
-              "name": "Select Server or Client",
-              "source": "",
-              "type": "BuiltinCommonInstructions::Group",
-              "events": [
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
-                      },
-                      "parameters": [
-                        "ServerButton",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "BuiltinCommonInstructions::Once"
-                      },
-                      "parameters": []
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "THNK_P2P::StartServer"
-                      },
-                      "parameters": [
-                        "",
-                        "\"Level 1\"",
-                        ""
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
-                      },
-                      "parameters": [
-                        "ClientButton",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "BuiltinCommonInstructions::Once"
-                      },
-                      "parameters": []
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "TextObject::String"
-                      },
-                      "parameters": [
-                        "DebugText",
-                        "=",
-                        "ID_TextInput.Text()"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "THNK_P2P::ConnectToServer"
-                      },
-                      "parameters": [
-                        "ID_TextInput.Text()",
-                        "ID_TextInput.Text()",
-                        ""
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "parameters": []
-            }
-          ],
-          "parameters": []
-        }
-      ],
-      "layers": [
-        {
-          "ambientLightColorB": 0,
-          "ambientLightColorG": 0,
-          "ambientLightColorR": 0,
-          "followBaseLayerCamera": false,
-          "isLightingLayer": false,
-          "name": "",
-          "visibility": true,
-          "cameras": [
-            {
-              "defaultSize": true,
-              "defaultViewport": true,
-              "height": 0,
-              "viewportBottom": 1,
-              "viewportLeft": 0,
-              "viewportRight": 1,
-              "viewportTop": 0,
-              "width": 0
-            }
-          ],
-          "effects": []
-        }
-      ],
-      "behaviorsSharedData": []
-    },
-    {
-      "b": 209,
-      "disableInputWhenNotFocused": true,
-      "mangledName": "THNK_32Local",
-      "name": "THNK Local",
+      "mangledName": "Leaderboard_32Scene2",
+      "name": "Leaderboard Scene2",
       "r": 209,
       "standardSortMethod": true,
       "stopSoundsOnStartup": true,
@@ -7885,55 +8163,26 @@
       "objects": [],
       "events": [
         {
-          "colorB": 228,
-          "colorG": 176,
-          "colorR": 74,
-          "creationTime": 0,
-          "name": "LAN",
-          "source": "",
-          "type": "BuiltinCommonInstructions::Group",
-          "events": [
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
             {
-              "type": "BuiltinCommonInstructions::Comment",
-              "color": {
-                "b": 109,
-                "g": 230,
-                "r": 255,
-                "textB": 0,
-                "textG": 0,
-                "textR": 0
+              "type": {
+                "inverted": true,
+                "value": "Leaderboards::IsLeaderboardViewLoaded"
               },
-              "comment": "Local Connection",
-              "comment2": ""
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "DepartScene"
-                  },
-                  "parameters": [
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "THNK_Local::StartServer"
-                  },
-                  "parameters": [
-                    "",
-                    "\"Level 1\"",
-                    "1",
-                    ""
-                  ]
-                }
-              ]
+              "parameters": []
             }
           ],
-          "parameters": []
+          "actions": [
+            {
+              "type": {
+                "value": "PopScene"
+              },
+              "parameters": [
+                ""
+              ]
+            }
+          ]
         }
       ],
       "layers": [
@@ -7965,6 +8214,59 @@
   ],
   "externalEvents": [],
   "eventsFunctionsExtensions": [
+    {
+      "author": "Gabriel (@TheGemDev)",
+      "category": "Network",
+      "extensionNamespace": "",
+      "fullName": "Internet Connectivity ",
+      "helpPath": "",
+      "iconUrl": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0ibWRpLWFjY2Vzcy1wb2ludC1uZXR3b3JrIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTQuOTMsMy45M0MzLjEyLDUuNzQgMiw4LjI0IDIsMTFDMiwxMy43NiAzLjEyLDE2LjI2IDQuOTMsMTguMDdMNi4zNCwxNi42NkM0Ljg5LDE1LjIyIDQsMTMuMjIgNCwxMUM0LDguNzkgNC44OSw2Ljc4IDYuMzQsNS4zNEw0LjkzLDMuOTNNMTkuMDcsMy45M0wxNy42Niw1LjM0QzE5LjExLDYuNzggMjAsOC43OSAyMCwxMUMyMCwxMy4yMiAxOS4xMSwxNS4yMiAxNy42NiwxNi42NkwxOS4wNywxOC4wN0MyMC44OCwxNi4yNiAyMiwxMy43NiAyMiwxMUMyMiw4LjI0IDIwLjg4LDUuNzQgMTkuMDcsMy45M003Ljc2LDYuNzZDNi42Nyw3Ljg1IDYsOS4zNSA2LDExQzYsMTIuNjUgNi42NywxNC4xNSA3Ljc2LDE1LjI0TDkuMTcsMTMuODNDOC40NSwxMy4xMSA4LDEyLjExIDgsMTFDOCw5Ljg5IDguNDUsOC44OSA5LjE3LDguMTdMNy43Niw2Ljc2TTE2LjI0LDYuNzZMMTQuODMsOC4xN0MxNS41NSw4Ljg5IDE2LDkuODkgMTYsMTFDMTYsMTIuMTEgMTUuNTUsMTMuMTEgMTQuODMsMTMuODNMMTYuMjQsMTUuMjRDMTcuMzMsMTQuMTUgMTgsMTIuNjUgMTgsMTFDMTgsOS4zNSAxNy4zMyw3Ljg1IDE2LjI0LDYuNzZNMTIsOUEyLDIgMCAwLDAgMTAsMTFBMiwyIDAgMCwwIDEyLDEzQTIsMiAwIDAsMCAxNCwxMUEyLDIgMCAwLDAgMTIsOU0xMSwxNVYxOUgxMEExLDEgMCAwLDAgOSwyMEgyVjIySDlBMSwxIDAgMCwwIDEwLDIzSDE0QTEsMSAwIDAsMCAxNSwyMkgyMlYyMEgxNUExLDEgMCAwLDAgMTQsMTlIMTNWMTVIMTFaIiAvPjwvc3ZnPg==",
+      "name": "InternetConnectivity",
+      "previewIconUrl": "https://resources.gdevelop-app.com/assets/Icons/access-point-network.svg",
+      "shortDescription": "Checks if the device running the game is connected to the internet.",
+      "version": "0.0.1",
+      "description": "Checks if the device running the game is connected to the internet.",
+      "origin": {
+        "identifier": "InternetConnectivity",
+        "name": "gdevelop-extension-store"
+      },
+      "tags": [
+        "javascript",
+        "internet",
+        "network connection",
+        "online"
+      ],
+      "authorIds": [
+        "jy7FXnGX0ZZcWfrAI9YuQaeIphi1"
+      ],
+      "dependencies": [],
+      "eventsFunctions": [
+        {
+          "description": "Checks if the device is connected to the internet.",
+          "fullName": "Is the device online?",
+          "functionType": "Condition",
+          "name": "IsDeviceOnline",
+          "sentence": "The device is online",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "eventsFunctionContext.returnValue = typeof navigator !== \"undefined\" && navigator.onLine;",
+                "",
+                ""
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [],
+          "objectGroups": []
+        }
+      ],
+      "eventsBasedBehaviors": [],
+      "eventsBasedObjects": []
+    },
     {
       "author": "VegeTato, arthuro555",
       "category": "General",
