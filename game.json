@@ -624,15 +624,21 @@
     },
     {
       "folded": true,
+      "name": "PlayerDestroyedTimer_Seconds",
+      "type": "number",
+      "value": 2
+    },
+    {
+      "folded": true,
       "name": "Player_Health",
       "type": "number",
-      "value": 1
+      "value": 4
     },
     {
       "folded": true,
       "name": "Player_Lives",
       "type": "number",
-      "value": 1
+      "value": 3
     },
     {
       "folded": true,
@@ -722,12 +728,6 @@
       "name": "EnemySpawnerTimer_Seconds",
       "type": "number",
       "value": 3
-    },
-    {
-      "folded": true,
-      "name": "PlayerDestroyedTimer_Seconds",
-      "type": "number",
-      "value": 2
     }
   ],
   "layouts": [
@@ -1406,7 +1406,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": true,
-        "zoomFactor": 0.7081665800024879,
+        "zoomFactor": 0.38983460758654115,
         "windowMask": false
       },
       "objectsGroups": [
@@ -1515,6 +1515,12 @@
           "name": "Player2_Name",
           "type": "string",
           "value": ""
+        },
+        {
+          "folded": true,
+          "name": "Player2_LeaderboardReady",
+          "type": "boolean",
+          "value": false
         }
       ],
       "instances": [
@@ -2205,13 +2211,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 66,
+          "height": 76,
           "layer": "Score Leaderboard Layer",
           "name": "Button_Submit",
           "persistentUuid": "a785090a-0aa0-421d-a845-1f9f43338d11",
           "width": 200,
           "x": 450,
-          "y": 1435,
+          "y": 1451,
           "zOrder": 910,
           "numberProperties": [],
           "stringProperties": [],
@@ -2251,9 +2257,79 @@
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 50,
+          "layer": "",
+          "locked": true,
+          "name": "Show_ScoreLeaderboard_debugText",
+          "persistentUuid": "7f85d99d-5565-4ab6-be4a-cd0e5aebc4f2",
+          "width": 100,
+          "x": -450,
+          "y": -500,
+          "zOrder": 999,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
         }
       ],
       "objects": [
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "DebugText",
+          "smoothed": true,
+          "tags": "",
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "SynchronizedObject",
+              "type": "THNK::SynchronizedObject"
+            }
+          ],
+          "string": "null",
+          "font": "e96b43b0ca3fd7775d75a702f44cd1b0dfd325e1db317f7cba84efdf572571fe_Roboto-Regular.ttf",
+          "textAlignment": "left",
+          "characterSize": 30,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "Show_ScoreLeaderboard_debugText",
+          "smoothed": true,
+          "tags": "",
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "SynchronizedObject",
+              "type": "THNK::SynchronizedObject"
+            }
+          ],
+          "string": "0",
+          "font": "e96b43b0ca3fd7775d75a702f44cd1b0dfd325e1db317f7cba84efdf572571fe_Roboto-Regular.ttf",
+          "textAlignment": "left",
+          "characterSize": 30,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          }
+        },
         {
           "assetStoreId": "",
           "bold": false,
@@ -2636,7 +2712,7 @@
           ],
           "content": {
             "initialValue": "",
-            "placeholder": "Enter your name",
+            "placeholder": "Enter your name, player 1",
             "fontResourceName": "8c9a07c662ceae43dd999872f6bd6916cb95b58c2ae373fd0a8aa58b91ce7c43_Roboto-BoldItalic.ttf",
             "fontSize": 20,
             "inputType": "text",
@@ -2665,7 +2741,7 @@
           ],
           "content": {
             "initialValue": "",
-            "placeholder": "Enter your name",
+            "placeholder": "Enter your name, player 2",
             "fontResourceName": "8c9a07c662ceae43dd999872f6bd6916cb95b58c2ae373fd0a8aa58b91ce7c43_Roboto-BoldItalic.ttf",
             "fontSize": 20,
             "inputType": "text",
@@ -2777,7 +2853,7 @@
               "string": "OK",
               "font": "",
               "textAlignment": "center",
-              "characterSize": 30,
+              "characterSize": 40,
               "color": {
                 "b": 42,
                 "g": 87,
@@ -4186,9 +4262,9 @@
           "variables": [
             {
               "folded": true,
-              "name": "e_removed",
-              "type": "number",
-              "value": 0
+              "name": "test",
+              "type": "boolean",
+              "value": false
             }
           ],
           "effects": [],
@@ -4284,7 +4360,39 @@
                     "value": "Cache"
                   },
                   "parameters": [
+                    "Show_ScoreLeaderboard_debugText"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
                     "Button_Submit"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "Player1_nameInput"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "Player2_nameInput"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "HighScore_Text"
                   ]
                 },
                 {
@@ -4731,6 +4839,7 @@
                       "colorG": 176,
                       "colorR": 74,
                       "creationTime": 0,
+                      "folded": true,
                       "name": "Message Sender (From Client to Server)",
                       "source": "",
                       "type": "BuiltinCommonInstructions::Group",
@@ -5030,7 +5139,20 @@
                               ]
                             }
                           ]
-                        },
+                        }
+                      ],
+                      "parameters": []
+                    },
+                    {
+                      "colorB": 228,
+                      "colorG": 176,
+                      "colorR": 74,
+                      "creationTime": 0,
+                      "folded": true,
+                      "name": "Display Score Leaderboard",
+                      "source": "",
+                      "type": "BuiltinCommonInstructions::Group",
+                      "events": [
                         {
                           "type": "BuiltinCommonInstructions::Comment",
                           "color": {
@@ -5070,6 +5192,16 @@
                             },
                             {
                               "type": {
+                                "value": "SetSceneVariableAsBoolean"
+                              },
+                              "parameters": [
+                                "Player2_LeaderboardReady",
+                                "True",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
                                 "value": "THNK::SendMessage"
                               },
                               "parameters": [
@@ -5077,6 +5209,78 @@
                                 "\"OK\"",
                                 "Player2_Name",
                                 ""
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Comment",
+                          "color": {
+                            "b": 35,
+                            "g": 166,
+                            "r": 245,
+                            "textB": 0,
+                            "textG": 0,
+                            "textR": 0
+                          },
+                          "comment": "Display Leaderboard",
+                          "comment2": ""
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "SceneVariableAsBoolean"
+                              },
+                              "parameters": [
+                                "Player2_LeaderboardReady",
+                                "True"
+                              ]
+                            }
+                          ],
+                          "actions": [],
+                          "events": [
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "TextObject::String"
+                                  },
+                                  "parameters": [
+                                    "Show_ScoreLeaderboard_debugText",
+                                    "=",
+                                    "\"1\""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "BuiltinCommonInstructions::Once"
+                                  },
+                                  "parameters": []
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "Leaderboards::DisplayLeaderboard"
+                                  },
+                                  "parameters": [
+                                    "",
+                                    "\"e7bedca2-78f1-4eb0-b11c-28d03a232d2d\"",
+                                    "yes"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "SetSceneVariableAsBoolean"
+                                  },
+                                  "parameters": [
+                                    "Player2_LeaderboardReady",
+                                    "False"
+                                  ]
+                                }
                               ]
                             }
                           ]
@@ -5094,6 +5298,7 @@
               "colorG": 176,
               "colorR": 74,
               "creationTime": 0,
+              "folded": true,
               "name": "SERVER",
               "source": "",
               "type": "BuiltinCommonInstructions::Group",
@@ -5118,7 +5323,7 @@
                       "colorG": 176,
                       "colorR": 74,
                       "creationTime": 0,
-                      "name": "Score Leaderboard",
+                      "name": "Score Leaderboard (Server)",
                       "source": "",
                       "type": "BuiltinCommonInstructions::Group",
                       "events": [
@@ -5154,31 +5359,6 @@
                                 "True"
                               ]
                             }
-                          ]
-                        },
-                        {
-                          "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [
-                            {
-                              "type": {
-                                "value": "GlobalVariableAsBoolean"
-                              },
-                              "parameters": [
-                                "Show_LeaderBoard",
-                                "True"
-                              ]
-                            }
-                          ],
-                          "actions": [
-                            {
-                              "type": {
-                                "value": "ShowLayer"
-                              },
-                              "parameters": [
-                                "",
-                                "\"Score Leaderboard Layer\""
-                              ]
-                            }
                           ],
                           "events": [
                             {
@@ -5186,7 +5366,18 @@
                               "conditions": [
                                 {
                                   "type": {
-                                    "value": "LayerVisible"
+                                    "value": "GlobalVariableAsBoolean"
+                                  },
+                                  "parameters": [
+                                    "Show_LeaderBoard",
+                                    "True"
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "ShowLayer"
                                   },
                                   "parameters": [
                                     "",
@@ -5194,299 +5385,388 @@
                                   ]
                                 }
                               ],
-                              "actions": [],
                               "events": [
                                 {
                                   "type": "BuiltinCommonInstructions::Standard",
                                   "conditions": [
                                     {
                                       "type": {
-                                        "value": "BuiltinCommonInstructions::Once"
-                                      },
-                                      "parameters": []
-                                    }
-                                  ],
-                                  "actions": [
-                                    {
-                                      "type": {
-                                        "value": "MettreY"
-                                      },
-                                      "parameters": [
-                                        "HighScore_Text",
-                                        "=",
-                                        "(SceneWindowHeight() / 2) - 100"
-                                      ]
-                                    },
-                                    {
-                                      "type": {
-                                        "value": "MettreY"
-                                      },
-                                      "parameters": [
-                                        "Button_Submit",
-                                        "=",
-                                        "(SceneWindowHeight() / 2)"
-                                      ]
-                                    },
-                                    {
-                                      "type": {
-                                        "value": "MettreY"
-                                      },
-                                      "parameters": [
-                                        "Player1_nameInput",
-                                        "=",
-                                        "(SceneWindowHeight() / 2)"
-                                      ]
-                                    },
-                                    {
-                                      "type": {
-                                        "value": "MettreY"
-                                      },
-                                      "parameters": [
-                                        "Player2_nameInput",
-                                        "=",
-                                        "(SceneWindowHeight() / 2) + 50"
-                                      ]
-                                    },
-                                    {
-                                      "type": {
-                                        "value": "TextInput::TextInputObject::SetDisabled"
-                                      },
-                                      "parameters": [
-                                        "Player2_nameInput",
-                                        "yes"
-                                      ]
-                                    },
-                                    {
-                                      "type": {
-                                        "value": "Montre"
-                                      },
-                                      "parameters": [
-                                        "Button_Submit",
-                                        ""
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "BuiltinCommonInstructions::Standard",
-                                  "conditions": [
-                                    {
-                                      "type": {
-                                        "value": "THNK::OnMessage"
+                                        "value": "LayerVisible"
                                       },
                                       "parameters": [
                                         "",
-                                        "\"OK\"",
-                                        "Player2_Name",
-                                        ""
-                                      ]
-                                    },
-                                    {
-                                      "type": {
-                                        "value": "BuiltinCommonInstructions::Once"
-                                      },
-                                      "parameters": []
-                                    }
-                                  ],
-                                  "actions": [
-                                    {
-                                      "type": {
-                                        "value": "TextInput::TextInputObject::SetText"
-                                      },
-                                      "parameters": [
-                                        "Player2_nameInput",
-                                        "=",
-                                        "VariableString(Player2_Name)"
-                                      ]
-                                    },
-                                    {
-                                      "type": {
-                                        "value": "TextInput::TextInputObject::SetDisabled"
-                                      },
-                                      "parameters": [
-                                        "Player2_nameInput",
-                                        "yes"
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "BuiltinCommonInstructions::Standard",
-                                  "conditions": [
-                                    {
-                                      "type": {
-                                        "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
-                                      },
-                                      "parameters": [
-                                        "Button_Submit",
-                                        ""
+                                        "\"Score Leaderboard Layer\""
                                       ]
                                     }
                                   ],
-                                  "actions": [
-                                    {
-                                      "type": {
-                                        "value": "ModVarGlobalTxt"
-                                      },
-                                      "parameters": [
-                                        "HighScore_PlayerNames",
-                                        "=",
-                                        "\"P1-\" + Player1_nameInput.Text() + \"__\" + \"P2-\" + Player2_nameInput.Text()"
-                                      ]
-                                    }
-                                  ],
+                                  "actions": [],
                                   "events": [
                                     {
                                       "type": "BuiltinCommonInstructions::Standard",
                                       "conditions": [
                                         {
                                           "type": {
-                                            "value": "TextInput::TextInputObject::Text"
+                                            "value": "BuiltinCommonInstructions::Once"
+                                          },
+                                          "parameters": []
+                                        }
+                                      ],
+                                      "actions": [
+                                        {
+                                          "type": {
+                                            "value": "MettreY"
                                           },
                                           "parameters": [
-                                            "Player1_nameInput",
-                                            "!=",
-                                            "\"\""
+                                            "HighScore_Text",
+                                            "=",
+                                            "(SceneWindowHeight() / 2) - 100"
                                           ]
                                         },
                                         {
                                           "type": {
-                                            "value": "TextInput::TextInputObject::Text"
+                                            "value": "MettreY"
+                                          },
+                                          "parameters": [
+                                            "Button_Submit",
+                                            "=",
+                                            "(SceneWindowHeight() / 2)"
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "MettreY"
+                                          },
+                                          "parameters": [
+                                            "Player1_nameInput",
+                                            "=",
+                                            "(SceneWindowHeight() / 2)"
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "MettreY"
                                           },
                                           "parameters": [
                                             "Player2_nameInput",
-                                            "!=",
-                                            "\"\""
+                                            "=",
+                                            "(SceneWindowHeight() / 2) + 50"
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "TextInput::TextInputObject::SetDisabled"
+                                          },
+                                          "parameters": [
+                                            "Player2_nameInput",
+                                            "yes"
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "Montre"
+                                          },
+                                          "parameters": [
+                                            "Button_Submit",
+                                            ""
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "Montre"
+                                          },
+                                          "parameters": [
+                                            "Player1_nameInput",
+                                            ""
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "Montre"
+                                          },
+                                          "parameters": [
+                                            "Player2_nameInput",
+                                            ""
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "Montre"
+                                          },
+                                          "parameters": [
+                                            "HighScore_Text",
+                                            ""
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "BuiltinCommonInstructions::Standard",
+                                      "conditions": [
+                                        {
+                                          "type": {
+                                            "value": "THNK::OnMessage"
+                                          },
+                                          "parameters": [
+                                            "",
+                                            "\"OK\"",
+                                            "Player2_Name",
+                                            ""
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "BuiltinCommonInstructions::Once"
+                                          },
+                                          "parameters": []
+                                        }
+                                      ],
+                                      "actions": [
+                                        {
+                                          "type": {
+                                            "value": "TextInput::TextInputObject::SetText"
+                                          },
+                                          "parameters": [
+                                            "Player2_nameInput",
+                                            "=",
+                                            "VariableString(Player2_Name)"
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "BuiltinCommonInstructions::Standard",
+                                      "conditions": [
+                                        {
+                                          "type": {
+                                            "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                                          },
+                                          "parameters": [
+                                            "Button_Submit",
+                                            ""
                                           ]
                                         }
                                       ],
                                       "actions": [
                                         {
                                           "type": {
-                                            "value": "SetGlobalVariableAsBoolean"
+                                            "value": "ModVarGlobalTxt"
                                           },
                                           "parameters": [
-                                            "PlayerNames_HighScore_ready",
-                                            "True"
+                                            "HighScore_PlayerNames",
+                                            "=",
+                                            "\"P1-\" + Player1_nameInput.Text() + \"__\" + \"P2-\" + Player2_nameInput.Text()"
+                                          ]
+                                        }
+                                      ],
+                                      "events": [
+                                        {
+                                          "type": "BuiltinCommonInstructions::Standard",
+                                          "conditions": [
+                                            {
+                                              "type": {
+                                                "value": "TextInput::TextInputObject::Text"
+                                              },
+                                              "parameters": [
+                                                "Player1_nameInput",
+                                                "!=",
+                                                "\"\""
+                                              ]
+                                            },
+                                            {
+                                              "type": {
+                                                "value": "TextInput::TextInputObject::Text"
+                                              },
+                                              "parameters": [
+                                                "Player2_nameInput",
+                                                "!=",
+                                                "\"\""
+                                              ]
+                                            }
+                                          ],
+                                          "actions": [
+                                            {
+                                              "type": {
+                                                "value": "SetGlobalVariableAsBoolean"
+                                              },
+                                              "parameters": [
+                                                "PlayerNames_HighScore_ready",
+                                                "True"
+                                              ]
+                                            }
+                                          ],
+                                          "events": [
+                                            {
+                                              "type": "BuiltinCommonInstructions::Comment",
+                                              "color": {
+                                                "b": 109,
+                                                "g": 230,
+                                                "r": 255,
+                                                "textB": 0,
+                                                "textG": 0,
+                                                "textR": 0
+                                              },
+                                              "comment": "Send score to leaderboard",
+                                              "comment2": ""
+                                            },
+                                            {
+                                              "type": "BuiltinCommonInstructions::Standard",
+                                              "conditions": [
+                                                {
+                                                  "type": {
+                                                    "value": "GlobalVariableAsBoolean"
+                                                  },
+                                                  "parameters": [
+                                                    "PlayerNames_HighScore_ready",
+                                                    "True"
+                                                  ]
+                                                },
+                                                {
+                                                  "type": {
+                                                    "value": "BuiltinCommonInstructions::Once"
+                                                  },
+                                                  "parameters": []
+                                                }
+                                              ],
+                                              "actions": [
+                                                {
+                                                  "type": {
+                                                    "value": "Leaderboards::SavePlayerScore"
+                                                  },
+                                                  "parameters": [
+                                                    "",
+                                                    "\"e7bedca2-78f1-4eb0-b11c-28d03a232d2d\"",
+                                                    "GlobalVariable(test_enemyRemoved)",
+                                                    "GlobalVariableString(HighScore_PlayerNames)"
+                                                  ]
+                                                },
+                                                {
+                                                  "type": {
+                                                    "value": "TextObject::String"
+                                                  },
+                                                  "parameters": [
+                                                    "Show_ScoreLeaderboard_debugText",
+                                                    "=",
+                                                    "\"1\""
+                                                  ]
+                                                },
+                                                {
+                                                  "type": {
+                                                    "value": "Leaderboards::DisplayLeaderboard"
+                                                  },
+                                                  "parameters": [
+                                                    "",
+                                                    "\"e7bedca2-78f1-4eb0-b11c-28d03a232d2d\"",
+                                                    "yes"
+                                                  ]
+                                                }
+                                              ]
+                                            }
                                           ]
                                         }
                                       ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "BuiltinCommonInstructions::Comment",
-                                  "color": {
-                                    "b": 109,
-                                    "g": 230,
-                                    "r": 255,
-                                    "textB": 0,
-                                    "textG": 0,
-                                    "textR": 0
-                                  },
-                                  "comment": "Send score to leaderboard",
-                                  "comment2": ""
-                                },
-                                {
-                                  "type": "BuiltinCommonInstructions::Standard",
-                                  "conditions": [
-                                    {
-                                      "type": {
-                                        "value": "GlobalVariableAsBoolean"
-                                      },
-                                      "parameters": [
-                                        "PlayerNames_HighScore_ready",
-                                        "True"
-                                      ]
                                     },
                                     {
-                                      "type": {
-                                        "value": "BuiltinCommonInstructions::Once"
+                                      "type": "BuiltinCommonInstructions::Comment",
+                                      "color": {
+                                        "b": 109,
+                                        "g": 230,
+                                        "r": 255,
+                                        "textB": 0,
+                                        "textG": 0,
+                                        "textR": 0
                                       },
-                                      "parameters": []
-                                    }
-                                  ],
-                                  "actions": [
-                                    {
-                                      "type": {
-                                        "value": "Leaderboards::SavePlayerScore"
-                                      },
-                                      "parameters": [
-                                        "",
-                                        "\"e7bedca2-78f1-4eb0-b11c-28d03a232d2d\"",
-                                        "GlobalVariable(test_enemyRemoved)",
-                                        "GlobalVariableString(HighScore_PlayerNames)"
-                                      ]
+                                      "comment": "// go to leaderboard",
+                                      "comment2": ""
                                     },
                                     {
-                                      "type": {
-                                        "value": "Leaderboards::DisplayLeaderboard"
-                                      },
-                                      "parameters": [
-                                        "",
-                                        "\"e7bedca2-78f1-4eb0-b11c-28d03a232d2d\"",
-                                        "yes"
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "BuiltinCommonInstructions::Comment",
-                                  "color": {
-                                    "b": 109,
-                                    "g": 230,
-                                    "r": 255,
-                                    "textB": 0,
-                                    "textG": 0,
-                                    "textR": 0
-                                  },
-                                  "comment": "Go to loaderboard",
-                                  "comment2": ""
-                                },
-                                {
-                                  "type": "BuiltinCommonInstructions::Standard",
-                                  "conditions": [
-                                    {
-                                      "type": {
-                                        "value": "Leaderboards::IsLeaderboardViewLoaded"
-                                      },
-                                      "parameters": []
-                                    }
-                                  ],
-                                  "actions": [
-                                    {
-                                      "type": {
-                                        "value": "Cache"
-                                      },
-                                      "parameters": [
-                                        "Button_Submit"
-                                      ]
-                                    },
-                                    {
-                                      "type": {
-                                        "value": "HideLayer"
-                                      },
-                                      "parameters": [
-                                        "",
-                                        "\"Score Leaderboard Layer\""
-                                      ]
-                                    },
-                                    {
-                                      "type": {
-                                        "value": "PushScene"
-                                      },
-                                      "parameters": [
-                                        "",
-                                        "\"Leaderboard Scene\""
-                                      ]
-                                    },
-                                    {
-                                      "type": {
-                                        "value": "SetGlobalVariableAsBoolean"
-                                      },
-                                      "parameters": [
-                                        "Show_LeaderBoard",
-                                        "False"
+                                      "type": "BuiltinCommonInstructions::Standard",
+                                      "conditions": [
+                                        {
+                                          "type": {
+                                            "value": "Leaderboards::IsLeaderboardViewLoaded"
+                                          },
+                                          "parameters": []
+                                        }
+                                      ],
+                                      "actions": [
+                                        {
+                                          "type": {
+                                            "value": "Cache"
+                                          },
+                                          "parameters": [
+                                            "Button_Submit"
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "Cache"
+                                          },
+                                          "parameters": [
+                                            "Player1_nameInput"
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "Cache"
+                                          },
+                                          "parameters": [
+                                            "Player2_nameInput"
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "Cache"
+                                          },
+                                          "parameters": [
+                                            "HighScore_Text"
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "HideLayer"
+                                          },
+                                          "parameters": [
+                                            "",
+                                            "\"Score Leaderboard Layer\""
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "PushScene"
+                                          },
+                                          "parameters": [
+                                            "",
+                                            "\"Leaderboard Scene\""
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "TextObject::String"
+                                          },
+                                          "parameters": [
+                                            "Show_ScoreLeaderboard_debugText",
+                                            "=",
+                                            "\"0\""
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "SetSceneVariableAsBoolean"
+                                          },
+                                          "parameters": [
+                                            "Player2_LeaderboardReady",
+                                            "False"
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "SetGlobalVariableAsBoolean"
+                                          },
+                                          "parameters": [
+                                            "Show_LeaderBoard",
+                                            "False"
+                                          ]
+                                        }
                                       ]
                                     }
                                   ]
@@ -8668,83 +8948,6 @@
       "disableInputWhenNotFocused": true,
       "mangledName": "Leaderboard_32Scene",
       "name": "Leaderboard Scene",
-      "r": 209,
-      "standardSortMethod": true,
-      "stopSoundsOnStartup": true,
-      "title": "",
-      "v": 209,
-      "uiSettings": {
-        "grid": false,
-        "gridType": "rectangular",
-        "gridWidth": 32,
-        "gridHeight": 32,
-        "gridOffsetX": 0,
-        "gridOffsetY": 0,
-        "gridColor": 10401023,
-        "gridAlpha": 0.8,
-        "snap": false,
-        "zoomFactor": 0.546875,
-        "windowMask": false
-      },
-      "objectsGroups": [],
-      "variables": [],
-      "instances": [],
-      "objects": [],
-      "events": [
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "Leaderboards::IsLeaderboardViewLoaded"
-              },
-              "parameters": []
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "PopScene"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        }
-      ],
-      "layers": [
-        {
-          "ambientLightColorB": 0,
-          "ambientLightColorG": 0,
-          "ambientLightColorR": 0,
-          "followBaseLayerCamera": false,
-          "isLightingLayer": false,
-          "name": "",
-          "visibility": true,
-          "cameras": [
-            {
-              "defaultSize": true,
-              "defaultViewport": true,
-              "height": 0,
-              "viewportBottom": 1,
-              "viewportLeft": 0,
-              "viewportRight": 1,
-              "viewportTop": 0,
-              "width": 0
-            }
-          ],
-          "effects": []
-        }
-      ],
-      "behaviorsSharedData": []
-    },
-    {
-      "b": 209,
-      "disableInputWhenNotFocused": true,
-      "mangledName": "Leaderboard_32Scene2",
-      "name": "Leaderboard Scene2",
       "r": 209,
       "standardSortMethod": true,
       "stopSoundsOnStartup": true,
